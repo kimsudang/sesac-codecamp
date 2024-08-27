@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Document</title>
+    <script>
+      function 버튼동작() {
+        const random = Math.floor(Math.random() * 1000000);
+        document.getElementById("auth").innerText = String(random).padStart(
+          6,
+          "0"
+        );
+
+        // 버튼을 누르자마자 동작하도록 초기값 넣어주기 -> 이 방법이 이 코드에선 최선인듯.
+        // 초기 분과 초를 지정해줘서 넣는 방안도 있는데, 이 코드는 3분 고정이니까~
+        document.getElementById("timer").innerText = "03 : 00";
+
+        // 이 부분 값이 변해야하니까 꼭꼭 let으로 선언해주기!!!! 까먹지 마
+        let endTime = 179;
+        setInterval(function () {
+          const 분 = String(Math.floor(endTime / 60)).padStart(2, "0");
+          const 초 = String(endTime % 60).padStart(2, "0");
+
+          document.getElementById("timer").innerText = `${분} : ${초}`;
+          endTime--;
+        }, 1000);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="auth"></div>
+    <button onclick="버튼동작()">인증번호 요청하기</button>
+    <div id="timer"></div>
+  </body>
+</html>

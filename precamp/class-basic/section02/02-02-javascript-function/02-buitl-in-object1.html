@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>내장객체 실습</title>
+    <script>
+      // 1. 수학객체
+      const 수학객체 = {
+        max: function () {
+          console.log("최댓값을 구합니다");
+        },
+        random: function () {
+          return 5;
+        },
+        round: function (반올림할값) {
+          console.log("반올림할 대상 : " + 반올림할값);
+        },
+      };
+
+      수학객체.max();
+      수학객체.round(3.141592);
+
+      const 내가만든랜덤숫자 = 수학객체.random();
+      console.log(내가만든랜덤숫자);
+
+      const 나의랜덤숫자 = Math.random();
+      console.log(나의랜덤숫자);
+
+      // 2. 날짜객체
+      const 나의날짜 = new Date();
+      console.log(나의날짜.getFullYear());
+      // month는 0-11까지 -> +1 해줘야함
+      console.log(나의날짜.getMonth() + 1);
+      console.log(나의날짜.getDate());
+
+      console.log(
+        나의날짜.getFullYear() +
+          "-" +
+          (나의날짜.getMonth() + 1) +
+          "-" +
+          나의날짜.getDate()
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

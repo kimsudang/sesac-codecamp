@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>슬랙 회원가입</title>
+    <link rel="stylesheet" href="./slack-signup.css" />
+    <script src="slack-signup.js"></script>
+  </head>
+  <body>
+    <div class="background">
+      <div class="header">
+        <div class="left-header">
+          <img src="./icon/arrow_left 32dp.png" />
+          <img src="./icon/arrow_right 32dp.png" />
+          <img src="./icon/time 32dp.png" />
+        </div>
+        <div class="rigth-header">
+          <input type="text" placeholder="수강생을 검색해보세요." />
+          <div class="student-menu">
+            <button class="student-btn">
+              <img src="./icon/logo_codecamp 32dp.png" />
+              <p>수강생</p>
+            </button>
+            <button class="help-btn"><img src="./icon/help 32dp.png" /></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="main">
+        <div class="nav">
+          <div class="top-nav">
+            <img src="./icon/채널 이미지.png" />
+            <div>
+              <img src="./icon/" />
+              <p>홈</p>
+            </div>
+            <div>
+              <img />
+              <p>대화</p>
+            </div>
+            <div>
+              <img />
+              <p>알림</p>
+            </div>
+            <div>
+              <img />
+              <p>북마크</p>
+            </div>
+            <div>
+              <img />
+              <p>더보기</p>
+            </div>
+          </div>
+          <div class="down-nav">
+            <img />
+            <img />
+          </div>
+        </div>
+        <div class="menubar">
+          <div class="title">
+            <p>코드캠프</p>
+            <img />
+            <img />
+          </div>
+          <button><img />서약서 자세히 보기</button>
+          <hr />
+          <div class="now-camp">
+            <div>
+              <img />
+              <p>코드캠프 13기</p>
+            </div>
+            <button>수강중</button>
+          </div>
+          <div class="student-list-tap">
+            <div class="student-list-title">
+              <div>
+                <img />
+                <p>수강생 리스트</p>
+              </div>
+              <img />
+            </div>
+            <div id="student-list-open" class="student-list-open">
+              <p></p>
+              <p></p>
+              <button><img />가입하기</button>
+            </div>
+          </div>
+          <div class="channel">
+            <div class="channel-title">
+              <img />
+              <p>채널</p>
+            </div>
+            <button><img /></button>
+          </div>
+          <div class="channel-open">
+            <p># 채널 1</p>
+            <p># 채널 2</p>
+            <p># 채널 3</p>
+            <p># 채널 4</p>
+          </div>
+          <div>
+            <img />
+            <p>차단 멤버 리스트</p>
+          </div>
+        </div>
+        <div class="signup">
+          <div class="signup-main">
+            <p class="signup-title">코드캠프에 가입하고</p>
+            <p class="signup-title">개발자로 커리어 점프 하세요.</p>
+
+            <div class="signup-list">
+              <div class="signup-list-element">
+                <p>이름</p>
+                <input
+                  id="info-name"
+                  type="text"
+                  placeholder="이름을 입력해주세요."
+                />
+              </div>
+              <div class="signup-list-element">
+                <p>이메일</p>
+                <input
+                  id="info-email"
+                  type="email"
+                  placeholder="네이버, 구글, 한메일, 카카오 계정만 입력"
+                />
+              </div>
+              <div class="signup-list-element">
+                <p>비밀번호</p>
+                <input
+                  id="info-password"
+                  type="password"
+                  placeholder="비밀번호를 입력해주세요."
+                />
+              </div>
+              <div class="signup-list-element">
+                <p>전화번호</p>
+                <input
+                  id="info-phone"
+                  type="tel"
+                  placeholder="010으로 시작, '-'를 꼭 입력해주세요."
+                />
+              </div>
+              <div class="sign-agree-num">
+                <p id="auth-num">000000</p>
+                <button onclick="authButton()">인증번호 요청</button>
+              </div>
+              <div class="agree-aline">
+                <p id="auth-time"></p>
+                <button id="agree" class="agree" onclick="authCheckButton()">
+                  인증하기
+                </button>
+              </div>
+              <div class="signup-list-element">
+                <p>자기소개</p>
+                <textarea
+                  id="info-intro"
+                  placeholder="자기소개를 입력해주세요."
+                >
+                </textarea>
+              </div>
+              <div class="signup-list-radio">
+                <p>성별</p>
+                <div class="radio-element">
+                  <input type="radio" name="gender" id="woman" value="여성" />
+                  <label for="woman">여성</label>
+                  <input type="radio" name="gender" id="man" value="남성" />
+                  <label for="man">남성</label>
+                </div>
+              </div>
+              <div class="signup-list-checkbox">
+                <input type="checkbox" id="agree" />
+                <label for="agree"> 집에는 씻으러만 가는데 동의합니다. </label>
+              </div>
+              <button
+                id="signup-btn"
+                class="signup-btn"
+                onclick="newProfileCreate()"
+              >
+                가입
+              </button>
+            </div>
+          </div>
+          <div class="signup-img"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>이미지 실습</title>
+    <style>
+      .배경이미지 {
+        box-sizing: border-box;
+        width: 300px;
+        height: 450px;
+        border: 2px solid black;
+        background-image: url("background-img2.jpeg");
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+    img 태그는 이미지의 비율을 유지해서 보여주는게 메인, background-img 태그는 이미지보단 배경의 크기가 메인 
+    img 태그는 닫는 태그 없어 자식 요소 가지지 못함, background로 넣어주면 배경이기 때문에 다른 요소 추가 가능
+    차이점
+    1. 사이즈 차이: 이미지 중심 vs 배경 중심
+    2. 다른 요소 추가 여부: 이미지 불가 vs 배경은 가능
+    -->
+    <img src="background-img.jpeg" width="300px" height="450px" />
+
+    <div class="배경이미지">
+      <span>배경 이미지 안에는 다른 요소 올릴 수 있음</span>
+      <button>버튼</button>
+    </div>
+  </body>
+</html>

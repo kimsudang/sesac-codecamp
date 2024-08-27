@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>이메일 쪼개기 실습</title>
+    <script>
+      const 내가입력한이메일 = "codecamp@gmail.com";
+      const 분리된결과 = 내가입력한이메일.split("@");
+      console.log(내가입력한이메일);
+      console.log(분리된결과);
+
+      const 이메일앞 = 분리된결과[0];
+      const 이메일뒤 = 분리된결과[1];
+      console.log(이메일앞);
+      console.log(이메일뒤);
+
+      const 새로운이메일앞 = 이메일앞.slice(0, 4);
+      const 새로운이메일앞별부분 = "****";
+      const 새로운이메일앞부분 = 새로운이메일앞 + 새로운이메일앞별부분;
+      console.log(새로운이메일앞부분);
+
+      const 새로운이메일 = 새로운이메일앞부분 + "@" + 이메일뒤;
+      console.log(새로운이메일);
+    </script>
+  </head>
+  <body></body>
+</html>
