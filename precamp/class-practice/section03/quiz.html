@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Quiz</title>
+    <script>
+      function checkEmailEvent() {
+        const email = document.getElementById("email").value;
+        const checkEmail = email.split("@");
+
+        if (checkEmail.length === 1) {
+          alert("제대로 된 이메일이 아닙니다. 이메일에 @가 없습니다.");
+        } else {
+          const browserEmail = checkEmail[1].split(".");
+
+          if (
+            browserEmail[0] === "naver" ||
+            browserEmail[0] === "gmail" ||
+            browserEmail[0] === "hanmail"
+          ) {
+            alert("회원가입을 축하합니다.");
+          } else {
+            alert(
+              "이메일은 naver.com, gmail.com, hanmail.net 중에서만 가입 가능합니다."
+            );
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      이메일:
+      <input id="email" type="email" />
+      <button onclick="checkEmailEvent()">회원가입</button>
+    </div>
+  </body>
+</html>
