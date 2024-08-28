@@ -113,22 +113,174 @@
 /* nav */
 .nav {
   width: 80px;
+  height: 1048px;
   margin-bottom: 80px;
   padding-left: 20px;
   padding-right: 20px;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .top-nav {
   padding-top: 16px;
 }
 
+.top-element {
+  margin-top: 8px;
+}
+
+.top-menu {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.top-menu p {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #e4e4e4;
+}
+
+.down-nav {
+  width: 40px;
+  height: 96px;
+}
+
+.down-nav img:first-child {
+  margin-bottom: 16px;
+}
+
 /* menubar */
 .menubar {
   width: 400px;
   background-color: #713574;
+  border-radius: 8px 0px 0px 8px;
+  padding: 20px;
 }
 
+.menubar hr {
+  border: 1px solid #955c98;
+  margin-bottom: 24px;
+}
+
+.title {
+  height: 32px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.title p {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.title-icon:first-child {
+  margin-right: 8px;
+}
+
+.detail-word {
+  width: 360px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  background-color: transparent;
+  background-image: url("./icon/서약서 자세히 보기 버튼.png");
+  margin-bottom: 24px;
+}
+
+.menu-list {
+  width: 360px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.list-element {
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 32px;
+  color: #ffffff;
+  padding: 4px 0px;
+}
+
+.list-element img {
+  margin-right: 8px;
+}
+
+.now-camp button {
+  width: 66px;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  padding: 4px 12px;
+  background-color: #ffffff33;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+.student-list-open {
+  height: 104px;
+  margin-top: 12px;
+  text-align: center;
+  color: #c9aac9;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
+
+.student-text {
+  height: 56px;
+  padding: 8px;
+}
+
+.student-list-open button {
+  width: 126px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  background-image: url("./icon/가입하기 버튼.png");
+  margin-top: 8px;
+}
+
+.channel-open {
+  margin: 8px opx;
+  height: 152px;
+}
+
+.channel-tag {
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  padding: 4px 16px;
+  align-items: center;
+}
+
+.channel-tag p {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #d4d3d3;
+  margin-left: 8px;
+  margin-bottom: 8px;
+}
+
+/* signup */
 .signup {
   width: 1360px;
   background-color: #d5bce4;
@@ -146,7 +298,6 @@
   box-shadow: 0px 0px 40px 0px #d389ff;
 }
 
-/* signup */
 .signup-title {
   color: #491449;
   font-size: 40px;
@@ -176,6 +327,11 @@
   padding-bottom: 20px;
 }
 
+.list-title {
+  width: 120px;
+  height: 44px;
+}
+
 .signup-list-element p {
   color: #333333;
   font-size: 20px;
@@ -203,6 +359,17 @@ textarea {
   line-height: 24px;
 }
 
+.info-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.warning-text {
+  color: #e84f4f;
+  font-size: 14px;
+  font-weight: 400;
+}
+
 /* 인증번호 요소 */
 .sign-agree-num {
   display: flex;
@@ -225,7 +392,6 @@ textarea {
   border-radius: 8px;
   background-color: #ffffff;
   padding: 8px 12px;
-  /* 꺠져서 임의 수정 */
   font-size: 16px;
   font-weight: 600;
   line-height: 24px;
@@ -286,6 +452,12 @@ textarea {
   font-size: 18px;
   font-weight: 400;
   line-height: 24px;
+  display: flex;
+  flex-direction: row;
+}
+
+.radio-list {
+  margin-right: 40px;
 }
 
 /* 동의 체크박스 */
@@ -319,8 +491,4 @@ textarea {
   line-height: 24px;
   margin-left: 56px;
   margin-right: 56px;
-}
-
-.signup-btn:hover {
-  background-color: #491449;
 }
