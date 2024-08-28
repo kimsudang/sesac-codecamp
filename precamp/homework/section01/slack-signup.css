@@ -258,6 +258,15 @@
   margin-top: 8px;
 }
 
+/* 수강생 */
+.student-btn-on {
+  width: 328px;
+  height: 40px;
+  margin: 18px 0px;
+  margin-bottom: 24px;
+  background: none;
+}
+
 .channel-open {
   margin: 8px opx;
   height: 152px;
@@ -362,12 +371,6 @@ textarea {
 .info-text {
   display: flex;
   flex-direction: column;
-}
-
-.warning-text {
-  color: #e84f4f;
-  font-size: 14px;
-  font-weight: 400;
 }
 
 /* 인증번호 요소 */
