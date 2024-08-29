@@ -7,6 +7,7 @@ const month = today.getMonth() + 1;
 const day = today.getDate();
 const todayDate = `${year}-${month}-${day}`;
 
+// 모든 값을 입력 받아야 하는 기능
 function isNotEmpty() {
   const userName = document.getElementById("info-name").value;
   const email = document.getElementById("info-email").value;
@@ -44,12 +45,13 @@ function isNotEmpty() {
   }
 }
 
-// 비번 일치
+// 비번 일치 여부
 function checkPasswords() {
   const password = document.getElementById("info-password").value;
   const confirmPassword = document.getElementById("info-password-check").value;
   const messageElement = document.getElementById("warning-text-password");
   const signupBtn = document.getElementById("signup-btn");
+  const outline = document.getElementById("signup-list-element");
 
   if (password === confirmPassword) {
     messageElement.innerHTML = "";
@@ -140,7 +142,7 @@ function newProfileCreate() {
   const gender = document.querySelector('input[name="gender"]:checked').value;
   const agree = document.getElementById("agree").checked ? "Y" : "N";
 
-  // 전화번호
+  // 전화번호 암호화
   let hiddenPhoneNumber = "";
   if (phoneNumber !== "") {
     const shortNumber = phoneNumber.split("-");
