@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>플렉스박스 column 실습</title>
+    <style>
+      body {
+        height: 100vh;
+      }
+
+      .CSS_부모 {
+        background-color: aqua;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        /* height: 500px; */
+        /* height: 100vßh; */
+        /* vh? viewprot-height => 보이는 화면의 높이 */
+        /* vw? viewprot-weight => 보이는 화면의 너비 */
+
+        height: 100%;
+        /* 100%가 안먹히는 이유: %란 부모를 기준으로 몇 %를 의미하기 때문 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="CSS_부모">
+      <div>메뉴아이콘</div>
+      <div>알림아이콘</div>
+    </div>
+  </body>
+</html>
