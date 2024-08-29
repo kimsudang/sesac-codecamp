@@ -109,7 +109,7 @@ body {
   display: flex;
   width: 100%;
   max-width: 1168px;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: flex-start;
   gap: 24px;
@@ -118,16 +118,19 @@ body {
 
 .board-post-line {
   display: flex;
+  flex-wrap: wrap;
+  /* test */
+  min-width: 750px;
   max-width: 784px;
   justify-content: space-between;
-  align-items: center;
-  align-content: center;
   gap: 24px;
   align-self: stretch;
-  flex-wrap: wrap;
 }
 
 .post {
+  /* test */
+  min-width: 350px;
+  max-width: 350px;
   display: flex;
   padding-bottom: 16px;
   flex-direction: column;
@@ -143,7 +146,11 @@ body {
   margin-bottom: 16px;
   background-size: contain;
   border-radius: 16px;
-  background: url("./assets/기타 (m).png") lightgray 50% / cover no-repeat;
+
+  background-color: lightgray;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .post-preview {
@@ -205,7 +212,6 @@ body {
   min-width: 360px;
   max-width: 760px;
   padding: 24px;
-  margin-left: 24px;
   border-radius: 16px;
   border: 1px solid var(--Gray-Gray-200, #d4d3d3);
   background: var(--Gray-W, #fff);
@@ -228,7 +234,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 40px;
+  gap: 16px;
   align-self: stretch;
 }
 
