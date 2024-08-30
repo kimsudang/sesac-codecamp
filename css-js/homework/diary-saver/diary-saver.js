@@ -35,7 +35,10 @@ const checkSideSubmit = function () {
   const sideTitle = document.getElementById("side-title").value;
   const sideContent = document.getElementById("side-content").value;
   const emotion = document.querySelector('input[name="side-emotion"]:checked').value;
+
   let previewImg = "";
+  let emotionKorean = "";
+  let emotionColor = "";
 
   console.log(emotion);
 
@@ -43,18 +46,28 @@ const checkSideSubmit = function () {
     switch (emotion) {
       case "happy":
         previewImg = "./assets/행복해요 (m).png";
+        emotionColor = "#EA5757";
+        emotionKorean = "행복해요";
         break;
       case "sad":
         previewImg = "./assets/슬퍼요 (m).png";
+        emotionColor = "#28B4E1";
+        emotionKorean = "슬퍼요";
         break;
       case "suprise":
         previewImg = "./assets/놀랐어요 (m).png";
+        emotionColor = "#D59029";
+        emotionKorean = "놀랐어요";
         break;
       case "angry":
         previewImg = "./assets/화나요 (m).png";
+        emotionColor = "var(--Gray-Gray-600, #777);";
+        emotionKorean = "화나요";
         break;
       case "etc":
         previewImg = "./assets/기타 (m).png";
+        emotionColor = "#A229ED";
+        emotionKorean = "기타";
         break;
     }
   };
@@ -64,11 +77,12 @@ const checkSideSubmit = function () {
 
   // 새 일기 객체
   const newDiary = {
-    emotion: emotion,
+    emotion: emotionKorean,
     title: sideTitle,
     content: sideContent,
     date: todayDate,
     preview: previewImg,
+    emotionText: emotionColor,
   };
 
   posts.push(newDiary);
@@ -79,8 +93,8 @@ const checkSideSubmit = function () {
   // 초기화
   document.getElementById("side-title").value = "";
   document.getElementById("side-content").value = "";
-  const sideRadioBtn = document.querySelectorAll('input[name="side-emotion"]');
-  sideRadioBtn.forEach((button) => (button.checked = false));
+  const sideEmotionBtn = document.querySelectorAll('input[name="side-emotion"]');
+  sideEmotionBtn.forEach((button) => (button.checked = false));
 
   sideSubmitBtn.disabled = true;
   sideSubmitBtn.style.color = "#f2f2f2";
@@ -92,14 +106,15 @@ const addNewDiary = function () {
   // 현재 있는 요소의 내용 초기화 -> 아래에서 생성한 기존 요소는 존재
   diaryPost.innerHTML = "";
 
+  // 프로필 이미지 안들가는 ㅇ이수
   for (let i = 0; i < posts.length; i++) {
     const newDiary = document.createElement("div");
     newDiary.className = "post";
     newDiary.innerHTML = `
-                <div class="emotion-img"></div>
+                <div class="emotion-img"  style="background-image: url('${posts[i].preview}')"></div>
                 <div class="post-preview">
                   <div class="post-preview-info">
-                    <p class="post-preview-emotion" style="background-image: url('${posts[i].preview}')"></p>
+                    <p class="post-preview-emotion" style="color: ${posts[i].emotionText}">${posts[i].emotion}</p>
                     <p class="post-preview-date">${posts[i].date}</p>
                   </div>
                   <p class="post-preview-title">${posts[i].title}</p>
