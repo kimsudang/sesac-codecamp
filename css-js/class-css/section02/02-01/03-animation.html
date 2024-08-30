@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>애니메이션 실습</title>
+    <style>
+      @keyframes 훈이의애니메이션 {
+        from {
+          transform: rotateY(200deg);
+          background-color: red;
+        }
+        50% {
+          transform: rotateY(100deg);
+          background-color: orange;
+        }
+        to {
+          transform: rotateY(180deg);
+          background-color: yellow;
+        }
+      }
+
+      .CSS_네모상자 {
+        width: 100px;
+        height: 150px;
+        background-color: green;
+      }
+
+      .CSS_네모상자:hover {
+        /* 불러올 애니메이션 이름 */
+        animation-name: 훈이의애니메이션;
+        /* 애니메이션을 지속할 시간 */
+        animation-duration: 0.5s;
+        /* 애니메이션을 반복할 횟수 */
+        animation-iteration-count: infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="CSS_네모상자"></div>
+  </body>
+</html>
