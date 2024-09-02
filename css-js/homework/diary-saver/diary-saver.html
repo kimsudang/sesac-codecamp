@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Diary Saver</title>
     <link rel="stylesheet" href="./diary-saver.css" />
   </head>
@@ -13,10 +11,26 @@
       </div>
       <div class="banner"><img src="./assets/Rectangle 1.png" /></div>
       <div class="content">
-        <div class="menu">
-          <button>일기보관함</button>
-          <button>사진보관함</button>
+        <div class="menubar">
+          <div class="menu">
+            <button>일기보관함</button>
+            <button>사진보관함</button>
+          </div>
+          <div class="tool-bar">
+              <div class="dropdown-tool-bar">
+                <select name="emotions" id="emotions" class="emotions">
+                  <option selected disabled>전체</option>
+                  <option value="happy">행복해요</option>
+                  <option value="sad">슬퍼요</option>
+                  <option value="suprise">놀랐어요</option>
+                  <option value="angry">화나요</option>
+                  <option value="etc">기타</option>
+                </select>
+              </div>
+            <div>
+          </div>
         </div>
+      </div>
         <div class="main-container">
           <div class="board">
             <div id="board-post-line" class="board-post-line">
