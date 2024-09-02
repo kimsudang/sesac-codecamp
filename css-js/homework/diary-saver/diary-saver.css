@@ -59,6 +59,7 @@ body {
 /* content */
 .content {
   width: 100%;
+  margin-bottom: 40px;
 }
 
 .menubar {
@@ -120,6 +121,11 @@ body {
   gap: 16px 8px;
   align-self: stretch;
   flex-wrap: wrap;
+
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  cursor: pointer;
 }
 
 .dropdown-tool-bar {
@@ -176,7 +182,6 @@ body {
 /* main-container */
 .main-container {
   max-width: 1168px;
-  margin-bottom: 40px;
   display: flex;
   justify-content: flex-start;
   gap: 24px;
@@ -236,11 +241,17 @@ body {
   padding: 12px;
   background-size: contain;
   border-radius: 16px;
+  position: relative;
 
   background-color: lightgray;
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.delete-card-board {
+  position: absolute;
+  right: 12px;
 }
 
 .post-preview {
@@ -443,6 +454,18 @@ body {
   letter-spacing: -0.18px;
 }
 
+/* scroll-top */
+.scroll-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+
+  fill: rgba(255, 255, 255, 0.9);
+  stroke-width: 1px;
+  stroke: var(--Gray-Gray-50, #f2f2f2);
+}
+
 /* footer */
 .footer {
   width: 100%;
@@ -639,8 +662,10 @@ body {
   max-width: 1168px;
   justify-content: flex-end;
   align-items: center;
+  padding-bottom: 16px;
   gap: 16px;
   align-self: stretch;
+  border-bottom: 1px solid var(--Gray-B, #000);
 }
 
 .detail-btn button {

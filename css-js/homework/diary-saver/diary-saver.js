@@ -123,7 +123,11 @@ const addNewDiary = function () {
     newDiaryElement.className = "post";
     newDiaryElement.innerHTML = `
                 <a href="./diary-detail.html?index=${i}">
-                  <div class="emotion-img"  style="background-image: url('${post.preview}')"></div>
+                  <div class="emotion-img" style="background-image: url('${post.preview}')">
+                    <div class="delete-card-board">
+                      <img src="./assets/close icon.png"/>
+                    </div>
+                  </div>
                   <div class="post-preview">
                     <div class="post-preview-info">
                       <p class="post-preview-emotion" style="color: ${post.emotionText}">${post.emotion}</p>
@@ -139,5 +143,45 @@ const addNewDiary = function () {
   });
 };
 
+// 데이터 불러오기
+const loadDiary = () => {
+  if (localStorage.length !== 0) {
+    for (let i = 0; i < localStorage.length; i++) {
+      const diaryLists = localStorage.getItem(`${i}`);
+      const diaryList = JSON.parse(diaryLists);
+      console.log(diaryList);
+
+      const diaryPost = document.getElementById("board-post-line");
+
+      const newDiaryElement = document.createElement("a");
+      newDiaryElement.className = "post";
+      newDiaryElement.innerHTML = `
+                <a href="./diary-detail.html?index=${i}">
+                  <div class="emotion-img" style="background-image: url('${diaryList.preview}')">
+                    <div class="delete-card-board">
+                      <img src="./assets/close icon.png"/>
+                    </div>
+                  </div>
+                  <div class="post-preview">
+                    <div class="post-preview-info">
+                      <p class="post-preview-emotion" style="color: ${diaryList.emotionText}">${diaryList.emotion}</p>
+                      <p class="post-preview-date">${diaryList.date}</p>
+                    </div>
+                    <p class="post-preview-title">${diaryList.title}</p>
+                  </div>
+                </a>`;
+
+      posts.push(diaryList);
+      diaryPost.appendChild(newDiaryElement);
+      console.log(posts);
+    }
+  }
+};
+
 // 페이지가 로드될 때 addNewDiary를 호출하여 로컬 스토리지에 저장된 데이터를 렌더링
-window.onload = addNewDiary;
+window.onload = loadDiary;
+
+// 페이지 스크롤 기능
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
