@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>가로스크롤 실습</title>
+    <style>
+      .CSS_네모박스 {
+        width: 200px;
+        height: 300px;
+        border: 1px solid blue;
+        display: flex;
+        flex-direction: row;
+
+        overflow: scroll;
+
+        /* overflow: hidden; */
+      }
+
+      .CSS_알맹이 {
+        /* 부모가 flex일 때 나는 찌그러지지 않을거야! */
+        flex-shrink: 0;
+        width: 150px;
+        height: 180px;
+        margin: 10px;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="CSS_네모박스">
+      <div class="CSS_알맹이"></div>
+      <div class="CSS_알맹이"></div>
+      <div class="CSS_알맹이"></div>
+      <div class="CSS_알맹이"></div>
+      <div class="CSS_알맹이"></div>
+      <div class="CSS_알맹이"></div>
+    </div>
+  </body>
+</html>
