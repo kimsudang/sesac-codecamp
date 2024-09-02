@@ -122,7 +122,7 @@ const addNewDiary = function () {
     const newDiaryElement = document.createElement("a");
     newDiaryElement.className = "post";
     newDiaryElement.innerHTML = `
-                <a href="./diary-detail.html?index=${i}">
+                <a href="./diary-detail.html?index=${i}#diary-comment">
                   <div class="emotion-img" style="background-image: url('${post.preview}')">
                     <div class="delete-card-board">
                       <img src="./assets/close icon.png"/>
@@ -156,7 +156,7 @@ const loadDiary = () => {
       const newDiaryElement = document.createElement("a");
       newDiaryElement.className = "post";
       newDiaryElement.innerHTML = `
-                <a href="./diary-detail.html?index=${i}">
+                <a href="./diary-detail.html?index=${i}#diary-comment">
                   <div class="emotion-img" style="background-image: url('${diaryList.preview}')">
                     <div class="delete-card-board">
                       <img src="./assets/close icon.png"/>
@@ -185,3 +185,17 @@ window.onload = loadDiary;
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
+
+// 스크롤 시 필터 색상 변경
+window.addEventListener("load", function () {
+  window.addEventListener("scroll", () => {
+    const moveScroll = window.scrollY;
+    console.log(`스크롤이 ${moveScroll}만큼 내려갔어요,`);
+
+    if (moveScroll > 350) {
+      document.getElementById("emotions").style = "filter: invert(100%)";
+    } else {
+      document.getElementById("emotions").style = "filter: invert(0%)";
+    }
+  });
+});
