@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>rem 실습</title>
+    <style>
+      html {
+        /* 기본 사이즈: 따로 명시 안 한 경우 */
+        font-size: 16px;
+
+        /* font-size: 10px; */
+        /* 62.5% */
+      }
+
+      .CSS_상자 {
+        width: 9.375rem; /* 원래는 150px */
+        height: 9.375rem;
+        margin: 1.25rem;
+        background-color: skyblue;
+      }
+
+      @media (max-width: 767px) {
+        html {
+          font-size: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="CSS_상자"></div>
+    <div class="CSS_상자"></div>
+    <div class="CSS_상자"></div>
+  </body>
+</html>
