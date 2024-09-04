@@ -26,6 +26,7 @@ window.addEventListener("load", function () {
       newDiaryElement.innerHTML = `
                     <p>${comments[i].comment}</p>
                     <p>[${comments[i].date}]</p>
+                    <hr />
                 `;
 
       commentsList.appendChild(newDiaryElement);
