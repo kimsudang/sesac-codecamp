@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>일기 상세보기</title>
+    <link rel="stylesheet" href="./diary-edit.css" />
+  </head>
+  <body>
+    <div class="detail-container">
+      <div class="detail-header">
+        <p>수연이의 다이어리</p>
+      </div>
+      <div class="detail-main-container">
+        <div class="detail-edit-area">
+          <div class="detail-content-top">
+            <p>오늘 기분은 어땠나요?</p>
+            <div class="radio-emotion">
+              <div class="radio-emotion-element">
+                <input id="happy" name="edit-emotion" type="radio" value="happy" />
+                <label for="happy">행복해요</label>
+              </div>
+              <div class="radio-emotion-element">
+                <input id="sad" name="edit-emotion" type="radio" value="sad" />
+                <label for="sad">슬퍼요</label>
+              </div>
+              <div class="radio-emotion-element">
+                <input id="suprise" name="edit-emotion" type="radio" value="suprise" />
+                <label for="suprise">놀랐어요</label>
+              </div>
+              <div class="radio-emotion-element">
+                <input id="angry" name="edit-emotion" type="radio" value="angry" />
+                <label for="angry">화나요</label>
+              </div>
+              <div class="radio-emotion-element">
+                <input id="etc" name="edit-emotion" type="radio" value="etc" />
+                <label for="etc">기타</label>
+              </div>
+            </div>
+          </div>
+          <div class="detail-content">
+            <div>
+              <p>제목</p>
+              <input id="detail-content-title" />
+            </div>
+            <div>
+              <p>내용</p>
+              <textarea id="detail-content"></textarea>
+            </div>
+          </div>
+          <div class="detail-edit-btn">
+            <button onclick="back()">취소</button>
+            <button onclick="editInfo()">수정하기</button>
+          </div>
+        </div>
+        <div id="diary-comment">
+          <p>회고</p>
+          <div>
+            <input placeholder="수정중일땐 회고를 작성할 수 없어요." />
+            <button disabled>입력</button>
+          </div>
+          <div id="comment-list"></div>
+        </div>
+      </div>
+    </div>
+    <script src="./diary-edit.js"></script>
+  </body>
+</html>

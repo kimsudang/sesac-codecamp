@@ -1,0 +1,15 @@
+/* ------------------------------------ */
+/* ----------- 일기 수정 페이지 ----------- */
+/* ------------------------------------ */
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 760px;
+  max-width: 1920px;
+  align-items: center;
+}
