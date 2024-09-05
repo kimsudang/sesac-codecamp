@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>일기 상세보기</title>
     <link rel="stylesheet" href="./diary-edit.css" />
   </head>
@@ -66,19 +67,11 @@
           <div class="diary-comment-list">
             <p>회고</p>
             <div class="diary-comment-input">
-              <input placeholder="수정중일땐 회고를 작성할 수 없어요." />
+              <input disabled placeholder="수정중일땐 회고를 작성할 수 없어요." />
               <button disabled>입력</button>
             </div>
           </div>
-          <div id="comment-list" class="comment-list">
-            <!-- const newDiaryElement = document.createElement("div");
-                  newDiaryElement.className = "comment-element";
-                  newDiaryElement.innerHTML = `
-                    <p>${comments[i].comment}</p>
-                    <p>[${comments[i].date}]</p>
-                    <hr />
-                `; -->
-          </div>
+          <div id="comment-list" class="comment-list"></div>
         </div>
       </div>
     </div>

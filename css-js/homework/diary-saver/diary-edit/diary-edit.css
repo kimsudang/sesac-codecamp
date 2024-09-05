@@ -15,7 +15,7 @@ body {
 
 .detail-container {
   display: flex;
-  min-width: 360px;
+  width: 100%;
   padding: 0rem 1.25rem;
   flex-direction: column;
   align-items: center;
@@ -223,7 +223,7 @@ body {
 .detail-edit-btn button {
   display: flex;
   height: 2.5rem;
-  max-width: 6.5rem; /* 104px */
+  max-width: 6.5rem;
   padding: 0.5rem 0.75rem;
   flex-direction: column;
   justify-content: center;
@@ -292,6 +292,7 @@ body {
   gap: 0.625rem;
   flex: 1 0 0;
 
+  border: none;
   border-radius: 0.5rem;
   background: var(--Gray-Gray-50, #f2f2f2);
 
@@ -313,6 +314,7 @@ body {
   align-items: flex-start;
   gap: 0.625rem;
 
+  border: none;
   border-radius: 0.5rem;
   background: var(--Gray-Gray-300, #c7c7c7);
 
@@ -338,9 +340,11 @@ body {
 
 .comment-element {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   align-content: center;
-  gap: 8px 12px;
+  gap: 0.5rem 0.75rem;
   align-self: stretch;
   flex-wrap: wrap;
 }
@@ -371,7 +375,7 @@ body {
 /* --------------------------------------- */
 /* ----------- 797px midea tag ----------- */
 /* --------------------------------------- */
-@media only screen and (min-width: 797px) {
+@media (min-width: 797px) {
   body {
     max-width: 1920px;
     align-items: center;
