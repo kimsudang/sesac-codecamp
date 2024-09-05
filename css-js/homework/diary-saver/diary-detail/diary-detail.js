@@ -72,6 +72,7 @@ document.getElementById("delete-card").addEventListener("click", (findIndex) => 
     localStorage.setItem(`${i}`, JSON.stringify(newPosts[i]));
   }
 
+  alert("삭제 되었습니다.");
   location.href = "../diary-main/diary-saver.html";
 });
 
@@ -94,25 +95,91 @@ const diaryComment = () => {
   comments.push(recomment);
   diaryList.comment = comments;
 
-  // addNewComment();
+  addNewComment();
 
   document.getElementById("comment").value = "";
 };
 
-// const addNewComment = () => {
-//   const commentsList = document.getElementById("comment-list");
-//   commentsList.innerHTML = "";
-//   comments.map((newComment) => {
-//     const newDiaryElement = document.createElement("div");
-//     newDiaryElement.className = "comment-element";
-//     newDiaryElement.innerHTML = `
-//                   <div>
-//                     <p>${newComment.comment}</p>
-//                     <p>[${newComment.date}]</p>
-//                   </div>
-//                   `;
-//     commentsList.appendChild(newDiaryElement);
+const addNewComment = () => {
+  const commentsList = document.getElementById("comment-list");
+  commentsList.innerHTML = "";
+  comments.map((newComment) => {
+    const newDiaryElement = document.createElement("div");
+    newDiaryElement.className = "comment-element";
+    newDiaryElement.innerHTML = `
+                  <div>
+                    <p>${newComment.comment}</p>
+                    <p>[${newComment.date}]</p>
+                  </div>
+                  `;
+    commentsList.appendChild(newDiaryElement);
 
-//     localStorage.setItem(`${findIndex}`, JSON.stringify(diaryList));
-//   });
-// };
+    localStorage.setItem(`${findIndex}`, JSON.stringify(diaryList));
+  });
+};
+
+// 복사 버튼
+const contentClipboard = () => {
+  const commentContent = document.getElementById("detail-content").innerText;
+  navigator.clipboard.writeText(commentContent);
+
+  const windowWidth = window.innerWidth;
+
+  const toastBar = document.getElementById("toast-message");
+  const toastText = document.getElementById("toast-text");
+
+  // 윈도우 크기에 따른 toast 값 설정, 순서대로 풀 스크린 > 반응형 > 모바일
+  if (windowWidth >= 797) {
+    toastBar.style = `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 47.5rem;
+    padding: 1rem;
+    
+    gap: 0.625rem;
+
+    position: absolute;
+    bottom: 5%;
+    left: calc(50% - (47.5rem / 2));
+
+    border-radius: 0.5rem;
+    background-color: black;
+  `;
+    toastText.style = `
+    color: #fff;
+    font-family: "Pretendard Variable";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: -0.01rem;
+  `;
+  } else {
+    toastBar.style = `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20rem;
+    padding: 0.75rem 0.5rem;
+    
+    gap: 0.625rem;
+
+    position: absolute;
+    bottom: 5%;
+    left: calc(50% - (20rem / 2));
+
+    border-radius: 0.5rem;
+    background-color: black;
+  `;
+    toastText.style = `
+    color: #fff;
+    font-family: "Pretendard Variable";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem;
+    letter-spacing: -0.009rem;
+  `;
+  }
+};
