@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>모달 실습</title>
+    <style>
+      .CSS_모달배경 {
+        display: none;
+
+        /* 화면 전체를 감싸야 하니까 absolute */
+        /* 부모가 없다면 (0,0)에 붙음 */
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100vw;
+        height: 100vh;
+        background-color: lightgray;
+        opacity: 50%;
+      }
+    </style>
+    <script>
+      const JS_모달열기기능 = () => {
+        document.getElementById("HTML_모달배경").style = "display: block;";
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="JS_모달열기기능()">모달열기</button>
+
+    <!-- 모달 -->
+    <div id="HTML_모달배경" class="CSS_모달배경"></div>
+  </body>
+</html>

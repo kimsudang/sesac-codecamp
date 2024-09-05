@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>폼 실습</title>
+    <script>
+      const JS_글등록기능 = () => {
+        alert("게시글 등록이 완료되었습니다.");
+      };
+    </script>
+  </head>
+  <body>
+    <form action="#" onsubmit="JS_글등록기능()">
+      제목: <input type="text" /> <br />
+      내용: <input type="text" /> <br />
+      <button>등록하기</button>
+
+      <button onclick="">좋아요</button>
+    </form>
+
+    <!-- 얘는 submit 됨 + 디폴트 -->
+    <button type="submit"></button>
+    <!-- 얘는 submit 안됨 -->
+    <button type="button"></button>
+    <!-- form안의 모든 인풋창 비우기 -->
+    <button type="reset"></button>
+  </body>
+</html>

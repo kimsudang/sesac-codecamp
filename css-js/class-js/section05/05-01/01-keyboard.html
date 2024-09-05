@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>키보드 감지 실습</title>
+    <style>
+      .CSS_사진 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+    <script>
+      let 부스터 = 1.0;
+      window.addEventListener("keydown", (event) => {
+        const 사진 = document.getElementById("HTML_사진");
+        const 사진스타일 = getComputedStyle(사진);
+        const 사진Y좌표 = Number(사진스타일.top.replace("px", ""));
+        const 사진X좌표 = Number(사진스타일.left.replace("px", ""));
+
+        // if (event.key === "Enter") {
+        //   alert("엔터를 누르셨군요");
+        // }
+
+        switch (event.key) {
+          case "ArrowUp": {
+            document.getElementById("HTML_사진").style = `top: ${(사진Y좌표 - 20) / 부스터}px; left: ${사진X좌표}px`;
+            break;
+          }
+          case "ArrowDown": {
+            document.getElementById("HTML_사진").style = `top: ${(사진Y좌표 + 20) * 부스터}px; left: ${사진X좌표}px`;
+            break;
+          }
+          case "ArrowLeft": {
+            document.getElementById("HTML_사진").style = `top: ${사진Y좌표}px; left: ${(사진X좌표 - 20) / 부스터}px`;
+            break;
+          }
+          case "ArrowRight": {
+            document.getElementById("HTML_사진").style = `top: ${사진Y좌표}px; left: ${(사진X좌표 + 20) * 부스터}px`;
+            break;
+          }
+          case " ": {
+            부스터 = 부스터 + 0.1;
+          }
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <img id="HTML_사진" class="CSS_사진" src="./image.jpeg" />
+  </body>
+</html>
