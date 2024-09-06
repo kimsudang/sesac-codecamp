@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>이미지 비율 실습</title>
+    <style>
+      .CSS_사진1 {
+        width: 300px;
+        /* height: 300px; */
+        background-color: black;
+
+        aspect-ratio: 1 / 3; /* 가로 1 : 세로 3 */
+      }
+
+      .CSS_사진2 {
+        width: 300px;
+        /* height: 300px; */
+        background-color: black;
+
+        aspect-ratio: 2 / 1; /* 가로 2 : 세로 1 */
+      }
+
+      .CSS_사진3 {
+        /* width: 300px; */
+        height: 300px;
+        background-color: black;
+
+        aspect-ratio: 2 / 1; /* 가로 2 : 세로 1 */
+      }
+
+      .CSS_태그도됨 {
+        /* width: 300px; */
+        height: 300px;
+        /* background-color: black; */
+
+        aspect-ratio: 2 / 1; /* 가로 2 : 세로 1 */
+      }
+    </style>
+  </head>
+  <body>
+    <div>1:3 방식</div>
+    <img class="CSS_사진1" src="./image/image.jpeg" />
+
+    <div>2:1 방식</div>
+    <img class="CSS_사진2" src="./image/image.jpeg" />
+
+    <div>2:! 방식</div>
+    <img class="CSS_사진3" src="./image/image.jpeg" />
+
+    <div>2:1 방식</div>
+    <button class="CSS_태그도됨">버튼</button>
+  </body>
+</html>

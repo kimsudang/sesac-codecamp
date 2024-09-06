@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>이미지 맞춤 실습</title>
+    <style>
+      .CSS_사진1 {
+        width: 300px;
+        height: 300px;
+        background-color: black;
+
+        object-fit: cover;
+      }
+
+      .CSS_사진2 {
+        width: 300px;
+        height: 300px;
+        background-color: black;
+
+        object-fit: contain;
+      }
+    </style>
+  </head>
+  <body>
+    <div>cover 방식</div>
+    <img class="CSS_사진1" src="./image/image.jpeg" />
+
+    <div>contain 방식</div>
+    <img class="CSS_사진2" src="./image/image.jpeg" />
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>이미지 맞춤 비율 실습</title>
+    <style>
+      .CSS_스크롤 {
+        display: flex;
+        flex-direction: column;
+
+        height: 500px;
+        overflow: scroll;
+      }
+
+      .CSS_사진 {
+        width: 300px;
+        /* height는 생략 (비율처리를 하기 위해서) */
+        margin: 10px;
+
+        object-fit: cover;
+        aspect-ratio: 16 / 9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="CSS_스크롤">
+      <img class="CSS_사진" src="./image/image.jpeg" />
+      <img class="CSS_사진" src="./image/00-image2.jpg" />
+      <img class="CSS_사진" src="./image/00-image3.jpg" />
+      <img class="CSS_사진" src="./image/00-image4.jpg" />
+      <img class="CSS_사진" src="./image/00-image5.jpg" />
+      <img class="CSS_사진" src="./image/00-image6.jpg" />
+    </div>
+  </body>
+</html>

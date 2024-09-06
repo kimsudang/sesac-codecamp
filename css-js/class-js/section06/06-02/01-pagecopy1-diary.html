@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>페이지 복사 실습</title>
+    <style>
+      .CSS_배너 {
+        height: 100px;
+        background-color: chocolate;
+      }
+
+      .CSS_네비게이션 {
+        height: 50px;
+        background-color: aquamarine;
+      }
+    </style>
+    <script>
+      const JS_메뉴이동 = (클릭한것) => {
+        switch (클릭한것) {
+          case "일기클릭": {
+            location.href = "./01-pagecopy1-diary.html";
+            break;
+          }
+          case "강아지클릭": {
+            location.href = "./01-pagecopy2-dog.html";
+            break;
+          }
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <div class="CSS_배너">배너 이미지입니다.</div>
+    <div class="CSS_네비게이션">
+      <button onclick="JS_메뉴이동('일기클릭')">일기</button>
+      <button onclick="JS_메뉴이동('강아지클릭')">강아지</button>
+    </div>
+
+    <div>
+      일기목록 화면입니다.
+      <div>diary1</div>
+      <div>diary2</div>
+      <div>diary3</div>
+      <div>...</div>
+    </div>
+  </body>
+</html>
