@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>풀페이지JS 실습</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.29/dist/fullpage.min.css" />
+    <style>
+      h1 {
+        font-size: 6em;
+        font-size: calc(2em + 2vw);
+        font-family: arial, helvetica;
+        margin: 0;
+      }
+
+      .section {
+        text-align: center;
+        font-family: arial, helvetica;
+        color: #fff;
+      }
+
+      /* Backgrounds colors for sections */
+      .fp-section:nth-child(1) {
+        background-image: linear-gradient(128deg, #40afff, #3f61ff);
+      }
+
+      .fp-section:nth-child(2) {
+        background-image: linear-gradient(128deg, #ff9a3f, #ff4b40);
+      }
+
+      .fp-section:nth-child(3) {
+        background-image: linear-gradient(128deg, #fc40ff, #543fff);
+      }
+
+      .fp-section:nth-child(4) {
+        background-image: linear-gradient(128deg, #9912e8, #1ed686);
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.29/dist/fullpage.min.js"></script>
+    <script>
+      window.onload = () => {
+        new fullpage("#fullpage", {});
+      };
+    </script>
+  </head>
+  <body>
+    <!-- fullPage.js HTML -->
+    <div id="fullpage">
+      <div class="section"><h1>사과페이지</h1></div>
+      <div class="section">
+        <h1>바나나페이지</h1>
+        <!-- <div class="slide"><h1>Section 2</h1></div>
+        <div class="slide"><h1>Slide 2.2</h1></div>
+        <div class="slide"><h1>Slide 2.3</h1></div> -->
+      </div>
+      <div class="section" id="section2"><h1>딸기페이지</h1></div>
+      <div class="section" id="section3"><h1>포도페이지</h1></div>
+    </div>
+  </body>
+</html>

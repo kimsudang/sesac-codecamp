@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>CSS-IN-JS 실습</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emotion/css@11.13.0/dist/emotion-css.umd.min.js"></script>
+    <script>
+      window.onload = () => {
+        const CSS_철수의버튼 = window.emotion.css`
+        background-color: blue;
+        color: white;
+        `;
+
+        document.getElementById("HTML_네모상자").innerHTML = `
+        <button class="${CSS_철수의버튼}">등록하기</button>
+        `;
+      };
+    </script>
+  </head>
+  <body>
+    <div id="HTML_네모상자"></div>
+  </body>
+</html>
