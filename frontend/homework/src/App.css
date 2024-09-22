@@ -111,6 +111,10 @@ body {
   background: var(--Gray-W, #fff);
 }
 
+.postVaildation {
+  display: none;
+}
+
 .addressInput {
   gap: 0.8rem;
 }

@@ -9,8 +9,12 @@ export const postCancelButton = () => {
   return <button class="checkButton postCancelButton">취소</button>;
 };
 
-export const postSubmitButton = () => {
-  return <button class="checkButton postSubmitButton">등록하기</button>;
+export const postSubmitButton = ({ onClick }) => {
+  return (
+    <button class="checkButton postSubmitButton" onClick={onClick}>
+      등록하기
+    </button>
+  );
 };
 
 export const addImageButton = () => {
