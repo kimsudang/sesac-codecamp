@@ -9,9 +9,11 @@ export const postCancelButton = () => {
   return <button class="checkButton postCancelButton">취소</button>;
 };
 
-export const postSubmitButton = ({ onClick }) => {
+export const postSubmitButton = ({ onClick, buttonActiveStyle }) => {
+  console.log(onClick);
+  console.log(buttonActiveStyle);
   return (
-    <button class="checkButton postSubmitButton" onClick={onClick}>
+    <button id="postSubmitButton" class="checkButton postSubmitButton" onClick={onClick} style={buttonActiveStyle}>
       등록하기
     </button>
   );
