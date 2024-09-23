@@ -236,7 +236,7 @@ hr {
 
 .postSubmitButton {
   border: none;
-  /* background: var(--gray-300, #c7c7c7); */
+  background: var(--gray-300, #c7c7c7);
 
   color: var(--gray-100, #e4e4e4);
 }

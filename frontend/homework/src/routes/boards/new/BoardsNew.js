@@ -5,7 +5,7 @@ import { addressSearchButton, postCancelButton, postSubmitButton, addImageButton
 
 const BoardsNew = () => {
   const [isVaild, setIsVaild] = useState(false);
-  const [buttonActiveStyle, setButtonActiveStyle] = useState({});
+  const [buttonActiveStyle, setButtonActiveStyle] = useState(false);
 
   // 이벤트 받아올 변수
   const [owner, setOwner] = useState("");
@@ -24,9 +24,9 @@ const BoardsNew = () => {
 
     if (event.target.value && password && title && content) {
       setIsVaild(true);
-      setButtonActiveStyle({ backgroundColor: "var(--n-main, #2974e5)" });
+      setButtonActiveStyle(true);
     } else {
-      setButtonActiveStyle({ backgroundColor: "var(--gray-300, #c7c7c7)" });
+      setButtonActiveStyle(false);
       setOwnerVaild("필수입력 사항입니다.");
       setIsVaild(false);
     }
@@ -37,9 +37,9 @@ const BoardsNew = () => {
 
     if (owner && event.target.value && title && content) {
       setIsVaild(true);
-      setButtonActiveStyle({ backgroundColor: "var(--n-main, #2974e5)" });
+      setButtonActiveStyle(true);
     } else {
-      setButtonActiveStyle({ backgroundColor: "var(--gray-300, #c7c7c7)" });
+      setButtonActiveStyle(false);
       setPasswordVaild("필수입력 사항입니다.");
       setIsVaild(false);
     }
@@ -50,9 +50,9 @@ const BoardsNew = () => {
 
     if (owner && password && event.target.value && content) {
       setIsVaild(true);
-      setButtonActiveStyle({ backgroundColor: "var(--n-main, #2974e5)" });
+      setButtonActiveStyle(true);
     } else {
-      setButtonActiveStyle({ backgroundColor: "var(--gray-300, #c7c7c7)" });
+      setButtonActiveStyle(false);
       setTitleVaild("필수입력 사항입니다.");
       setIsVaild(false);
     }
@@ -63,9 +63,9 @@ const BoardsNew = () => {
 
     if (owner && password && title && event.target.value) {
       setIsVaild(true);
-      setButtonActiveStyle({ backgroundColor: "var(--n-main, #2974e5)" });
+      setButtonActiveStyle(true);
     } else {
-      setButtonActiveStyle({ backgroundColor: "var(--gray-300, #c7c7c7)" });
+      setButtonActiveStyle(false);
       setContentVaild("필수입력 사항입니다.");
       setIsVaild(false);
     }
@@ -80,29 +80,29 @@ const BoardsNew = () => {
   };
 
   return (
-    <div class="uploadPostPage">
-      <div class="menuTitle">
+    <div className="uploadPostPage">
+      <div className="menuTitle">
         <p>게시글 등록하기</p>
         <img src={close} alt="close" />
       </div>
-      <div class="postContainer">
+      <div className="postContainer">
         {/* 작성자, 비번 */}
-        <div class="titleContainer">
-          <div class="inputContainer">
-            <div class="labelTitle">
-              <p class="label">작성자</p>
-              <p class="important">*</p>
+        <div className="titleContainer">
+          <div className="inputContainer">
+            <div className="labelTitle">
+              <p className="label">작성자</p>
+              <p className="important">*</p>
             </div>
             <input
               id="postOwner"
-              class="infoInput"
+              className="infoInput"
               type="text"
               placeholder="작성자 명을 입력해 주세요."
               onChange={onChangeOwner}
             />
             <p
               id="postOwnerVaild"
-              class="postVaildation"
+              className="postVaildation"
               style={{
                 display: !owner ? "block" : "none",
                 color: "var(--red, #F66A6A)",
@@ -114,21 +114,21 @@ const BoardsNew = () => {
               {ownerVaild}
             </p>
           </div>
-          <div class="inputContainer">
-            <div class="labelTitle">
-              <p class="label">비밀번호</p>
-              <p class="important">*</p>
+          <div className="inputContainer">
+            <div className="labelTitle">
+              <p className="label">비밀번호</p>
+              <p className="important">*</p>
             </div>
             <input
               id="postPassword"
-              class="infoInput"
+              className="infoInput"
               type="password"
               placeholder="비밀번호를 입력해 주세요."
               onChange={onChangePassword}
             />
             <p
               id="postPasswordVaild"
-              class="postVaildation"
+              className="postVaildation"
               style={{
                 display: !password ? "block" : "none",
                 color: "var(--red, #F66A6A)",
@@ -143,21 +143,21 @@ const BoardsNew = () => {
         </div>
         <hr />
         {/* 제목 */}
-        <div class="inputContainer">
-          <div class="labelTitle">
-            <p class="label">제목</p>
-            <p class="important">*</p>
+        <div className="inputContainer">
+          <div className="labelTitle">
+            <p className="label">제목</p>
+            <p className="important">*</p>
           </div>
           <input
             id="postTitle"
-            class="infoInput"
+            className="infoInput"
             type="text"
             placeholder="제목을 입력해 주세요."
             onChange={onChangeTitle}
           />
           <p
             id="postTitleVaild"
-            class="postVaildation"
+            className="postVaildation"
             style={{
               display: !title ? "block" : "none",
               color: "var(--red, #F66A6A)",
@@ -171,21 +171,21 @@ const BoardsNew = () => {
         </div>
         <hr />
         {/* 내용 */}
-        <div class="inputContainer">
-          <div class="labelTitle">
-            <p class="label">내용</p>
-            <p class="important">*</p>
+        <div className="inputContainer">
+          <div className="labelTitle">
+            <p className="label">내용</p>
+            <p className="important">*</p>
           </div>
           <textarea
             id="postContent"
-            class="infoInputContent"
+            className="infoInputContent"
             type="text"
             placeholder="내용을 입력해 주세요."
             onChange={onChangeContent}
           ></textarea>
           <p
             id="postContentVaild"
-            class="postVaildation"
+            className="postVaildation"
             style={{
               display: !content ? "block" : "none",
               color: "var(--red, #F66A6A)",
@@ -198,32 +198,32 @@ const BoardsNew = () => {
           </p>
         </div>
         {/* 주소 */}
-        <div class="inputContainer addressInput">
-          <p class="label">주소</p>
-          <div class="addressMail">
-            <input class="infoInputAddress" type="text" placeholder="01234" />
+        <div className="inputContainer addressInput">
+          <p className="label">주소</p>
+          <div className="addressMail">
+            <input className="infoInputAddress" type="text" placeholder="01234" />
             {addressSearchButton()}
           </div>
-          <input class="infoInput" type="text" placeholder="주소를 입력해 주세요." />
-          <input class="infoInput" type="text" placeholder="상세주소" />
+          <input className="infoInput" type="text" placeholder="주소를 입력해 주세요." />
+          <input className="infoInput" type="text" placeholder="상세주소" />
         </div>
         <hr />
         {/* 유튜브 링크 */}
-        <div class="inputContainer">
-          <p class="label">유튜브 링크</p>
-          <input class="infoInput" type="text" placeholder="링크를 입력해 주세요." />
+        <div className="inputContainer">
+          <p className="label">유튜브 링크</p>
+          <input className="infoInput" type="text" placeholder="링크를 입력해 주세요." />
         </div>
         <hr />
         {/* 사진 첨부 */}
-        <div class="postUploadeImg">
-          <p class="label">사진 첨부</p>
-          <div class="postUploadImage">
+        <div className="postUploadeImg">
+          <p className="label">사진 첨부</p>
+          <div className="postUploadImage">
             {addImageButton()}
             {addImageButton()}
             {addImageButton()}
           </div>
         </div>
-        <div class="postButtonGroup">
+        <div className="postButtonGroup">
           {postCancelButton()}
           {postSubmitButton({ onClick: onClickPostVaildation }, buttonActiveStyle)}
         </div>
