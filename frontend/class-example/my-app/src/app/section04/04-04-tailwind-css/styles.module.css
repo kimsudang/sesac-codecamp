@@ -1,0 +1,19 @@
+.버튼스타일 {
+  border: none;
+  background-color: yellowgreen;
+  @apply text-철수가좋아하는색깔; /* 테일윈드css랑 함께 쓰기 */
+}
+
+.네모상자스타일1 {
+  width: 200px;
+  height: 200px;
+  @apply bg-영희가좋아하는색깔; /* 테일윈드css랑 함께 쓰기 */
+}
+
+.네모상자스타일2 {
+  width: 200px;
+  height: 200px;
+  @apply bg-영희가좋아하는색깔; /* 테일윈드css랑 함께 쓰기 */
+
+  padding: 30px; /* @tailwind base에 이미 bo-sizing 정의되어 있음 */
+}
