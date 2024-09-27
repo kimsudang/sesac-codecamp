@@ -1,3 +1,4 @@
+import ApolloSetting from "@/commons/settings/06-02-apollo-setting";
 import "./globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
@@ -22,8 +23,11 @@ export default function RootLayout(props) {
   return (
     <html lang="en">
       <body className={`${철수의폰트.variable} ${글로벌폰트.variable}`}>
+        {/* 헤더 */}
         <div>==========여기 위는 레이아웃입니다.============</div>
-        {props.children}
+        {/* 내용 */}
+        <ApolloSetting>{props.children}</ApolloSetting>
+        {/* 푸터 */}
         <div>==========여기 아래는 레이아웃입니다.============</div>
       </body>
     </html>
