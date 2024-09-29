@@ -1,12 +1,28 @@
 "use client";
 
+import { useMutation, gql } from "@apollo/client";
 import { ChangeEvent, useState } from "react";
 import Image from "next/image";
 import "./styles.module.css";
 import close from "../../../../public/icons/close.svg";
 import { addressSearchButton, postCancelButton, postSubmitButton, addImageButton } from "../../components/button";
 
+const CREATE_Broad = gql`
+  mutation createBoard($writer: String, $password: String, $title: String!, $contents: String!) {
+    createBoard(createBoardInput: { writer: $writer, password: $password, title: $title, contents: $contents }) {
+      _id
+      writer
+      title
+      contents
+      likeCount
+      dislikeCount
+    }
+  }
+`;
+
 const BoardsNew = () => {
+  const [signup] = useMutation(CREATE_Broad);
+
   const [isVaild, setIsVaild] = useState(false);
   const [buttonActiveStyle, setButtonActiveStyle] = useState(false);
 
@@ -74,9 +90,19 @@ const BoardsNew = () => {
     }
   };
 
-  const onClickPostVaildation = () => {
+  const onClickPostVaildation = async () => {
     if (isVaild && owner && password && title && content) {
-      alert("게시글 등록이 가능한 상태입니다.");
+      const result = await signup({
+        variables: {
+          writer: owner,
+          password: password,
+          title: title,
+          contents: content,
+        },
+      });
+
+      console.log(result);
+      alert("게시글 등록이 완료 되었습니다.");
     } else {
       alert("필수항목에 빈값이 존재합니다.");
     }
