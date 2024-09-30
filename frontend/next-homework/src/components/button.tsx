@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import add from "../../../public/icons/add.svg";
+import add from "../../public/icons/add.svg";
 
 // 게시글 등록 페이지 버튼
 export const addressSearchButton = () => {

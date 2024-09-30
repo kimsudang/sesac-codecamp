@@ -2,12 +2,14 @@
 
 import { useMutation, gql } from "@apollo/client";
 import { ChangeEvent, useState } from "react";
+import { useRouter } from "next/navigation";
+
 import Image from "next/image";
 import "./styles.module.css";
 import close from "../../../../public/icons/close.svg";
-import { addressSearchButton, postCancelButton, postSubmitButton, addImageButton } from "../../components/button";
+import { addressSearchButton, postCancelButton, postSubmitButton, addImageButton } from "../../../components/button";
 
-const CREATE_Broad = gql`
+const CREATE_BROAD = gql`
   mutation createBoard($writer: String, $password: String, $title: String!, $contents: String!) {
     createBoard(createBoardInput: { writer: $writer, password: $password, title: $title, contents: $contents }) {
       _id
@@ -21,7 +23,9 @@ const CREATE_Broad = gql`
 `;
 
 const BoardsNew = () => {
-  const [signup] = useMutation(CREATE_Broad);
+  const router = useRouter();
+
+  const [signup] = useMutation(CREATE_BROAD);
 
   const [isVaild, setIsVaild] = useState(false);
   const [buttonActiveStyle, setButtonActiveStyle] = useState(false);
@@ -91,20 +95,25 @@ const BoardsNew = () => {
   };
 
   const onClickPostVaildation = async () => {
-    if (isVaild && owner && password && title && content) {
-      const result = await signup({
-        variables: {
-          writer: owner,
-          password: password,
-          title: title,
-          contents: content,
-        },
-      });
+    try {
+      if (isVaild && owner && password && title && content) {
+        const result = await signup({
+          variables: {
+            writer: owner,
+            password: password,
+            title: title,
+            contents: content,
+          },
+        });
 
-      console.log(result);
-      alert("게시글 등록이 완료 되었습니다.");
-    } else {
-      alert("필수항목에 빈값이 존재합니다.");
+        console.log(result);
+        alert("게시글 등록이 완료 되었습니다.");
+
+        router.push(`/boards/${result.data.createBoard._id}`);
+      }
+    } catch (error) {
+      console.log(error);
+      alert(`에러가 발생했습니다. 다시 시도하여 주세요. \n error: ${error}`);
     }
   };
 
