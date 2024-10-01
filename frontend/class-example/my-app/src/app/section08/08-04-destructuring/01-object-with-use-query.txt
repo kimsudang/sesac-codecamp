@@ -1,0 +1,40 @@
+function useQuery(props) {
+    // props API 요청하기
+    
+    return {
+        data: {
+            fetchBoard: {
+                writer: "철수"
+            }
+        }, 
+        loading: false,
+        refetch: () => {
+            console.log("리패치가 실행됩니다.")
+        }
+    }
+}
+undefined
+----------------------------------------------------------------------
+useQuery()
+{data: {…}, loading: false, refetch: ƒ}
+data: fetchBoard: writer: "철수"[[Prototype]]: Object[[Prototype]]: Objectconstructor: 
+ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()__proto__: (...)get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()loading: 
+falserefetch: () => {             console.log("리패치가 실행됩니다.")         }[[Prototype]]: Object
+----------------------------------------------------------------------
+const result = useQuery("FETCH_BOARDS")
+undefined
+----------------------------------------------------------------------
+result.data.fetchBoard.writer
+'철수'
+----------------------------------------------------------------------
+result.loading
+false
+----------------------------------------------------------------------
+result.refetch()
+리패치가 실행됩니다.
+----------------------------------------------------------------------
+const {data, loading, refetech} = useQuery("FETCH_BOARDS")
+undefined
+----------------------------------------------------------------------
+data
+{fetchBoard: {…}}fetchBoard: writer: "철수"[[Prototype]]: Object[[Prototype]]: Object
