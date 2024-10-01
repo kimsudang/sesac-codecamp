@@ -5,9 +5,14 @@ import { ChangeEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import Image from "next/image";
-import "./styles.module.css";
+import styles from "./styles.module.css";
 import close from "../../../../public/icons/close.svg";
-import { addressSearchButton, postCancelButton, postSubmitButton, addImageButton } from "../../../components/button";
+import {
+  addressSearchButton,
+  postCancelButton,
+  postSubmitButton,
+  addImageButton,
+} from "../../../components/button/button";
 
 const CREATE_BROAD = gql`
   mutation createBoard($writer: String, $password: String, $title: String!, $contents: String!) {
@@ -118,29 +123,29 @@ const BoardsNew = () => {
   };
 
   return (
-    <div className="uploadPostPage">
-      <div className="menuTitle">
+    <div className={styles.page}>
+      <div className={styles.menu}>
         <p>게시글 등록하기</p>
         <Image src={close} alt="" width="0" height="0" />
       </div>
-      <div className="postContainer">
+      <div className={styles.container}>
         {/* 작성자, 비번 */}
-        <div className="titleContainer">
-          <div className="inputContainer">
-            <div className="labelTitle">
-              <p className="label">작성자</p>
-              <p className="important">*</p>
+        <div className={styles.title}>
+          <div className={styles.input}>
+            <div className={styles.labelTitle}>
+              <p className={styles.label}>작성자</p>
+              <p className={styles.star}>*</p>
             </div>
             <input
               id="postOwner"
-              className="infoInput"
+              className={styles.info}
               type="text"
               placeholder="작성자 명을 입력해 주세요."
               onChange={onChangeOwner}
             />
             <p
               id="postOwnerVaild"
-              className="postVaildation"
+              className={styles.vaildation}
               style={{
                 display: !owner ? "block" : "none",
                 color: "var(--red, #F66A6A)",
@@ -152,21 +157,21 @@ const BoardsNew = () => {
               {ownerVaild}
             </p>
           </div>
-          <div className="inputContainer">
-            <div className="labelTitle">
-              <p className="label">비밀번호</p>
-              <p className="important">*</p>
+          <div className={styles.input}>
+            <div className={styles.labelTitle}>
+              <p className={styles.label}>비밀번호</p>
+              <p className={styles.star}>*</p>
             </div>
             <input
               id="postPassword"
-              className="infoInput"
+              className={styles.info}
               type="password"
               placeholder="비밀번호를 입력해 주세요."
               onChange={onChangePassword}
             />
             <p
               id="postPasswordVaild"
-              className="postVaildation"
+              className={styles.vaildation}
               style={{
                 display: !password ? "block" : "none",
                 color: "var(--red, #F66A6A)",
@@ -179,23 +184,24 @@ const BoardsNew = () => {
             </p>
           </div>
         </div>
-        <hr className="line" />
+        <hr className={styles.line} />
         {/* 제목 */}
-        <div className="inputContainer">
-          <div className="labelTitle">
-            <p className="label">제목</p>
-            <p className="important">*</p>
+
+        <div className={styles.input}>
+          <div className={styles.labelTitle}>
+            <p className={styles.label}>제목</p>
+            <p className={styles.star}>*</p>
           </div>
           <input
             id="postTitle"
-            className="infoInput"
+            className={styles.info}
             type="text"
             placeholder="제목을 입력해 주세요."
             onChange={onChangeTitle}
           />
           <p
             id="postTitleVaild"
-            className="postVaildation"
+            className={styles.vaildation}
             style={{
               display: !title ? "block" : "none",
               color: "var(--red, #F66A6A)",
@@ -207,22 +213,22 @@ const BoardsNew = () => {
             {titleVaild}
           </p>
         </div>
-        <hr className="line" />
+        <hr className={styles.line} />
         {/* 내용 */}
-        <div className="inputContainer">
-          <div className="labelTitle">
-            <p className="label">내용</p>
-            <p className="important">*</p>
+        <div className={styles.input}>
+          <div className={styles.labelTitle}>
+            <p className={styles.label}>내용</p>
+            <p className={styles.star}>*</p>
           </div>
           <textarea
             id="postContent"
-            className="infoInputContent"
+            className={styles.infoContent}
             placeholder="내용을 입력해 주세요."
             onChange={onChangeContent}
           ></textarea>
           <p
             id="postContentVaild"
-            className="postVaildation"
+            className={styles.vaildation}
             style={{
               display: !content ? "block" : "none",
               color: "var(--red, #F66A6A)",
@@ -235,32 +241,32 @@ const BoardsNew = () => {
           </p>
         </div>
         {/* 주소 */}
-        <div className="inputContainer addressInput">
-          <p className="label">주소</p>
-          <div className="addressMail">
-            <input className="infoInputAddress" type="text" placeholder="01234" />
+        <div className={`${styles.input} ${styles.address}`}>
+          <p className={styles.label}>주소</p>
+          <div className={styles.addressMail}>
+            <input className={styles.infoAddress} type="text" placeholder="01234" />
             {addressSearchButton()}
           </div>
-          <input className="infoInput" type="text" placeholder="주소를 입력해 주세요." />
-          <input className="infoInput" type="text" placeholder="상세주소" />
+          <input className={styles.info} type="text" placeholder="주소를 입력해 주세요." />
+          <input className={styles.info} type="text" placeholder="상세주소" />
         </div>
-        <hr className="line" />
+        <hr className={styles.line} />
         {/* 유튜브 링크 */}
-        <div className="inputContainer">
-          <p className="label">유튜브 링크</p>
-          <input className="infoInput" type="text" placeholder="링크를 입력해 주세요." />
+        <div className={styles.input}>
+          <p className={styles.label}>유튜브 링크</p>
+          <input className={styles.info} type="text" placeholder="링크를 입력해 주세요." />
         </div>
-        <hr className="line" />
+        <hr className={styles.line} />
         {/* 사진 첨부 */}
-        <div className="postUploadeImg">
-          <p className="label">사진 첨부</p>
-          <div className="postUploadImage">
+        <div className={styles.postUploadeImg}>
+          <p className={styles.label}>사진 첨부</p>
+          <div className={styles.postUploadImage}>
             {addImageButton()}
             {addImageButton()}
             {addImageButton()}
           </div>
         </div>
-        <div className="postButtonGroup">
+        <div className={styles.postButtonGroup}>
           {postCancelButton()}
           {postSubmitButton({ onClick: onClickPostVaildation }, buttonActiveStyle)}
         </div>
