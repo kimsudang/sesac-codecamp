@@ -47,20 +47,20 @@ const BoardList = () => {
     <div>
       {/* 목록 헤더 */}
       <div>
-        <div>
+        <span>
           <input type="checkbox" />
-        </div>
-        <div>번호</div>
-        <div>상품명</div>
-        <div>작성자</div>
-        <div>날짜</div>
+        </span>
+        <span>번호</span>
+        <span>상품명</span>
+        <span>작성자</span>
+        <span>날짜</span>
         {/* 좋아요 싫어요 아이콘 */}
-        <div></div>
-        <div>삭제</div>
+        <span></span>
+        <span>삭제</span>
       </div>
       {data?.fetchBoards.map((el, index) => (
         <div key={el._id}>
-          <span style={{ marginRight: "10px" }}>
+          <span>
             <input type="checkbox" />
           </span>
           <Link href={`/boards/${el._id}`}>
@@ -69,9 +69,13 @@ const BoardList = () => {
             {/* 좋아요/싫어요 중 하나라도 선택되어 있는데 다른 값 누르면 팝업 후 확인 -> updateBoard로 좋아요,싫어요 값 수정 */}
             {/* 이미 버튼이 눌려있으면 더 카운트 되지 않도록 방지하기 */}
             {/* 삭제 기능이 그냥 게시판에 있다? 말안됨 => 개인 게시글 보기 페이지 등으로 빼서 사용 */}
+            <span>{index}</span>
+            <span>{el.title}</span>
+            <span>작성자: {el.writer}</span>
+            <span>{el.createdAt.split("T")[0]}</span>
             <span>
-              번호: {index} | 제목: {el.title}| 작성자: {el.writer} | {el.createdAt.split("T")[0]} | like:{" "}
-              {el.likeCount} dislike: {el.dislikeCount}
+              {" "}
+              like: {el.likeCount} dislike: {el.dislikeCount}
             </span>
           </Link>
           <span>
