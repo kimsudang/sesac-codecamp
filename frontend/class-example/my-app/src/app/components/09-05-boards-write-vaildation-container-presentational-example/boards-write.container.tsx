@@ -1,28 +1,10 @@
 "use client";
 
-import { useMutation, gql } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { useParams, useRouter } from "next/navigation";
 import { ChangeEvent, useState } from "react";
-
-const CREATE_BOARD = gql`
-  mutation createBoard($myWriter: String, $myTitle: String, $myContents: String) {
-    createBoard(writer: $myWriter, title: $myTitle, contents: $myContents) {
-      _id
-      number
-      message
-    }
-  }
-`;
-
-const UPDATE_BOARD = gql`
-  mutation updateBoard($myNumber: Int, $myWriter: String, $myTitle: String, $myContents: String) {
-    updateBoard(number: $myNumber, writer: $myWriter, title: $myTitle, contents: $myContents) {
-      _id
-      number
-      message
-    }
-  }
-`;
+import BoardsWriteUI from "./boards-write.presenter";
+import { CREATE_BOARD, UPDATE_BOARD } from "./board-write.queries";
 
 export default function BoardsWrite(props) {
   const route = useRouter();
@@ -59,37 +41,44 @@ export default function BoardsWrite(props) {
       console.log(result);
 
       alert("등록이 완료되었습니다.");
-      route.push(`/section09/09-03-boards/${result.data.createBoard.number}`);
+      route.push(
+        `/section09/09-05-boards-vaildation-container-presentational-example/${result.data.createBoard.number}`
+      );
     } catch (error) {
       console.log(error);
     }
   };
 
   const onClickUpdate = async () => {
+    const myVariables = {
+      myNumber: Number(params.number),
+    };
+
+    if (writer) myVariables.myWriter = writer;
+    if (title) myVariables.myTitle = title;
+    if (contents) myVariables.myContents = contents;
+
     try {
       const result = await updateBoard({
-        variables: {
-          myNumber: Number(params.number),
-          myWriter: writer,
-          myTitle: title,
-          myContents: contents,
-        },
+        variables: myVariables,
       });
       console.log(result);
 
       alert("수정이 완료되었습니다.");
-      route.push(`/section09/09-03-boards/${params.number}`);
+      route.push(`/section09/09-05-boards-vaildation-container-presentational-example/${params.number}`);
     } catch (error) {
       console.log(error);
     }
   };
-
   return (
-    <>
-      <input type="text" onChange={onChangeWriter} /> <br />
-      <input type="text" onChange={onChangeTitle} /> <br />
-      <input type="text" onChange={onChangeContents} /> <br />
-      <button onClick={props.isEdit ? onClickUpdate : onClickSubmit}>{props.isEdit ? "수정" : "등록"}</button>
-    </>
+    <BoardsWriteUI
+      작성자입력하는기능={onChangeWriter}
+      제목입력하는기능={onChangeTitle}
+      내용입력하는기능={onChangeContents}
+      등록하는기능={onClickSubmit}
+      수정하는기능={onClickUpdate}
+      isEdit={props.isEdit}
+      data={props.data}
+    />
   );
 }

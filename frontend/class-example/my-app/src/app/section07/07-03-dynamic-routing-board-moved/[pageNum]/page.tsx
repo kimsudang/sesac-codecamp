@@ -4,8 +4,8 @@ import { gql, useQuery } from "@apollo/client";
 import { useParams } from "next/navigation";
 
 const FETCH_BOARD = gql`
-  query fetchBoard($number: Int) {
-    fetchBoard(number: $number) {
+  query fetchBoard($mynumber: Int) {
+    fetchBoard(number: $mynumber) {
       writer
       title
       contents
@@ -24,7 +24,7 @@ const StaticRoutingMovedPage = () => {
 
   const { data } = useQuery(FETCH_BOARD, {
     variables: {
-      number: Number(params.pageNum),
+      mynumber: Number(params.pageNum),
     },
   });
 

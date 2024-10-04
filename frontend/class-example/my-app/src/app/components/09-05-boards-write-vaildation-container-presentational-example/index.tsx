@@ -59,36 +59,38 @@ export default function BoardsWrite(props) {
       console.log(result);
 
       alert("등록이 완료되었습니다.");
-      route.push(`/section09/09-03-boards/${result.data.createBoard.number}`);
+      route.push(`/section09/09-04-boards-vaildation/${result.data.createBoard.number}`);
     } catch (error) {
       console.log(error);
     }
   };
 
   const onClickUpdate = async () => {
+    const myVariables = {
+      myNumber: Number(params.number),
+    };
+
+    if (writer) myVariables.myWriter = writer;
+    if (title) myVariables.myTitle = title;
+    if (contents) myVariables.myContents = contents;
+
     try {
       const result = await updateBoard({
-        variables: {
-          myNumber: Number(params.number),
-          myWriter: writer,
-          myTitle: title,
-          myContents: contents,
-        },
+        variables: myVariables,
       });
       console.log(result);
 
       alert("수정이 완료되었습니다.");
-      route.push(`/section09/09-03-boards/${params.number}`);
+      route.push(`/section09/09-04-boards-vaildation/${params.number}`);
     } catch (error) {
       console.log(error);
     }
   };
-
   return (
     <>
-      <input type="text" onChange={onChangeWriter} /> <br />
-      <input type="text" onChange={onChangeTitle} /> <br />
-      <input type="text" onChange={onChangeContents} /> <br />
+      <input type="text" onChange={onChangeWriter} defaultValue={props.data?.fetchBoard.writer} /> <br />
+      <input type="text" onChange={onChangeTitle} defaultValue={props.data?.fetchBoard.title} /> <br />
+      <input type="text" onChange={onChangeContents} defaultValue={props.data?.fetchBoard.contents} /> <br />
       <button onClick={props.isEdit ? onClickUpdate : onClickSubmit}>{props.isEdit ? "수정" : "등록"}</button>
     </>
   );
