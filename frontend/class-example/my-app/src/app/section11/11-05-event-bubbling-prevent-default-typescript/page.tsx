@@ -1,6 +1,6 @@
 "use client";
 
-import { FetchBoardDocument, FetchBoardsDocument } from "@/commons/graphql/graphql";
+import { FetchBoardsDocument } from "@/commons/graphql/graphql";
 import { gql, useQuery } from "@apollo/client";
 import { MouseEvent } from "react";
 
@@ -16,7 +16,7 @@ const FETCH_BOARDS = gql`
 `;
 
 const StaticRoutingMovedPage = () => {
-  const { data } = useQuery(FetchBoardsDocument, (variables: {}));
+  const { data } = useQuery(FetchBoardsDocument, { variables: {} });
   console.log(data);
 
   // const onClickAlert = (event) => {
