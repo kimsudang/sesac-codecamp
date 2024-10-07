@@ -1,5 +1,6 @@
 "use client";
 
+import { CreateBoardDocument } from "@/commons/graphql/graphql";
 import { useMutation, gql } from "@apollo/client";
 import { useState } from "react";
 
@@ -14,7 +15,7 @@ const 나의그래프큐엘세팅 = gql`
 `;
 
 export default function GraphqlMutationPage() {
-  const [나의함수] = useMutation(나의그래프큐엘세팅);
+  const [나의함수] = useMutation(CreateBoardDocument);
 
   const [] = useState();
 
@@ -26,7 +27,7 @@ export default function GraphqlMutationPage() {
         myContents: "aa",
       },
     });
-
+    // result.data?.createBoard?.number 추론 가능함
     console.log(result);
   };
 
