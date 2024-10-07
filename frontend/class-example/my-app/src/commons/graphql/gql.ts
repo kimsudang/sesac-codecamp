@@ -19,6 +19,7 @@ const documents = {
     "\n  # 타입 적는 곳: 그래피큐엘 영역이니까 그래피큐엘 타입.\n  mutation createBoard($myWriter: String, $myTitle: String, $myContents: String) {\n    # 전달할 변수 적는 곳\n    createBoard(writer: $myWriter, title: $myTitle, contents: $myContents) {\n      _id\n      number\n      message\n    }\n  }\n": types.CreateBoardDocument,
     "\n  mutation createProduct($seller: String, $createProductInput: CreateProductInput!) {\n    createProduct(seller: $seller, createProductInput: $createProductInput) {\n      _id\n      number\n      message\n    }\n  }\n": types.CreateProductDocument,
     "\n  mutation deleteBoard($number: Int) {\n    deleteBoard(number: $number) {\n      message\n    }\n  }\n": types.DeleteBoardDocument,
+    "\n  query fetchBoards {\n    fetchBoards(page: 1) {\n      number\n      writer\n      title\n      createdAt\n    }\n  }\n": types.FetchBoardsDocument,
 };
 
 /**
@@ -59,6 +60,10 @@ export function graphql(source: "\n  mutation createProduct($seller: String, $cr
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  mutation deleteBoard($number: Int) {\n    deleteBoard(number: $number) {\n      message\n    }\n  }\n"): (typeof documents)["\n  mutation deleteBoard($number: Int) {\n    deleteBoard(number: $number) {\n      message\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  query fetchBoards {\n    fetchBoards(page: 1) {\n      number\n      writer\n      title\n      createdAt\n    }\n  }\n"): (typeof documents)["\n  query fetchBoards {\n    fetchBoards(page: 1) {\n      number\n      writer\n      title\n      createdAt\n    }\n  }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
