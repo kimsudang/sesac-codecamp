@@ -14,6 +14,7 @@ import {
   addImageButton,
   postEditButton,
 } from "../../components/button";
+import { getGraphQLErrorsFromResult } from "@apollo/client/utilities";
 
 // TODO: 남은 요소들(주소, 링크, 이미지 등) 넣기
 // 게시글 생성하기
@@ -167,7 +168,8 @@ const BoardsWrite = (props) => {
       // TODO: refetch 시키기
       router.push(`/boards/${params.boardId}`);
     } catch (error) {
-      alert(`${error}`);
+      console.log(error);
+      alert(`${error.message}`);
       router.push(`/boards`);
     }
   };
