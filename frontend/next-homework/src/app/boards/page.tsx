@@ -4,6 +4,8 @@ import { gql, useMutation, useQuery } from "@apollo/client";
 import Link from "next/link";
 import styles from "./styles.module.css";
 import Image from "next/image";
+import { MouseEvent } from "react";
+import { DeleteBoardDocument } from "@/commons/graphql/graphql";
 
 const FETCH_BOARDS = gql`
   query {
@@ -18,28 +20,21 @@ const FETCH_BOARDS = gql`
   }
 `;
 
-const DELETE_BOARD = gql`
-  mutation deleteBoard($boardId: ID!) {
-    deleteBoard(boardId: $boardId)
-  }
-`;
-
 const BoardList = () => {
   const { data } = useQuery(FETCH_BOARDS);
   console.log(data);
 
-  const [deleteBoard] = useMutation(DELETE_BOARD);
+  const [deleteBoard] = useMutation(DeleteBoardDocument);
 
-  const onClickDelete = async (event) => {
+  const onClickDelete = async (event: MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
     try {
-      const result = await deleteBoard({
+      await deleteBoard({
         variables: {
-          boardId: event.target.id,
+          boardId: event.currentTarget.id,
         },
         refetchQueries: [{ query: FETCH_BOARDS }],
       });
-      console.log(result.data?.message);
       alert("삭제가 성공적으로 수행됐습니다.");
     } catch (error) {
       console.log(`error: ${error}`);
@@ -68,7 +63,7 @@ const BoardList = () => {
               {/* 좋아요/싫어요 중 하나라도 선택되어 있는데 다른 값 누르면 팝업 후 확인 -> updateBoard로 좋아요,싫어요 값 수정 */}
               {/* 이미 버튼이 눌려있으면 더 카운트 되지 않도록 방지하기 */}
               {/* 삭제 기능이 그냥 게시판에 있다? 말안됨 => 개인 게시글 보기 페이지 등으로 빼서 사용 */}
-              <li className={`${styles.content} ${styles.number}`}>{index}</li>
+              <li className={`${styles.content} ${styles.number}`}>{index + 1}</li>
               <li className={`${styles.content} ${styles.text}`}>{el.title}</li>
               <li className={`${styles.content} ${styles.text}`}>{el.writer}</li>
               <li className={`${styles.content} ${styles.number}`}>{el.createdAt.split("T")[0]}</li>
