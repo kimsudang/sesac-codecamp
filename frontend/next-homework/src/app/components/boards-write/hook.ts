@@ -1,10 +1,10 @@
 "use client";
 
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, useState } from "react";
-import { CreateBoardDocument, UpdateBoardDocument } from "@/commons/graphql/graphql";
+import { CreateBoardDocument, FetchBoardDocument, UpdateBoardDocument } from "@/commons/graphql/graphql";
 
 const useBoardWrite = () => {
   const router = useRouter();
@@ -15,6 +15,12 @@ const useBoardWrite = () => {
 
   const [isVaild, setIsVaild] = useState(false);
   const [buttonActiveStyle, setButtonActiveStyle] = useState(false);
+
+  const { data } = useQuery(FetchBoardDocument, {
+    variables: {
+      boardId: String(params.boardId),
+    },
+  });
 
   // 이벤트 받아올 변수
   const [owner, setOwner] = useState("");
@@ -141,6 +147,7 @@ const useBoardWrite = () => {
   };
 
   return {
+    data,
     buttonActiveStyle,
     ownerVaild,
     passwordVaild,
