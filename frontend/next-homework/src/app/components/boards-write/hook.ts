@@ -148,6 +148,10 @@ const useBoardWrite = () => {
 
   return {
     data,
+    owner,
+    password,
+    title,
+    content,
     buttonActiveStyle,
     ownerVaild,
     passwordVaild,

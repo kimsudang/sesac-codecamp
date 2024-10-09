@@ -10,6 +10,10 @@ import { IBoardsWriteProps } from "./types";
 
 const BoardsWrite = (props: IBoardsWriteProps) => {
   const {
+    owner,
+    password,
+    title,
+    content,
     buttonActiveStyle,
     ownerVaild,
     passwordVaild,
@@ -49,7 +53,7 @@ const BoardsWrite = (props: IBoardsWriteProps) => {
               id="postOwnerVaild"
               className={styles.vaildation}
               style={{
-                display: !ownerVaild ? "block" : "none",
+                display: !owner ? "block" : "none",
                 color: "var(--red, #F66A6A)",
                 fontSize: "1.6rem",
                 fontWeight: "500",
@@ -76,7 +80,7 @@ const BoardsWrite = (props: IBoardsWriteProps) => {
               id="postPasswordVaild"
               className={styles.vaildation}
               style={{
-                display: !passwordVaild ? "block" : "none",
+                display: !password ? "block" : "none",
                 color: "var(--red, #F66A6A)",
                 fontSize: "1.6rem",
                 fontWeight: "500",
@@ -106,7 +110,7 @@ const BoardsWrite = (props: IBoardsWriteProps) => {
             id="postTitleVaild"
             className={styles.vaildation}
             style={{
-              display: !titleVaild ? "block" : "none",
+              display: !title ? "block" : "none",
               color: "var(--red, #F66A6A)",
               fontSize: "1.6rem",
               fontWeight: "500",
@@ -134,7 +138,7 @@ const BoardsWrite = (props: IBoardsWriteProps) => {
             id="postContentVaild"
             className={styles.vaildation}
             style={{
-              display: contentVaild ? "none" : "block",
+              display: content ? "block" : "none",
               color: "var(--red, #F66A6A)",
               fontSize: "1.6rem",
               fontWeight: "500",
