@@ -46,3 +46,14 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+  --swiper-theme-color: transparent;
+  --swiper-navigation-size: 100%;
+  --swiper-navigation-top-offset: 100%;
+}
+
+.swiper-pagination-bullet-active {
+  --swiper-theme-color: white;
+}

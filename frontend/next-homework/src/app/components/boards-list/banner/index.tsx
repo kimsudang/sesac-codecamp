@@ -5,12 +5,16 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 const BoardListBannerComponent = () => {
   return (
     <div style={{ width: "100vw" }}>
       <Swiper
+        loop={true}
+        speed={300}
+        autoHeight={true}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
         spaceBetween={50}
         slidesPerView={1}
         onSlideChange={() => console.log("slide change")}
@@ -19,7 +23,7 @@ const BoardListBannerComponent = () => {
           dynamicBullets: true,
         }}
         navigation={true}
-        modules={[Pagination, Navigation]}
+        modules={[Pagination, Navigation, Autoplay]}
         className="mySwiper"
       >
         <SwiperSlide>
@@ -33,7 +37,6 @@ const BoardListBannerComponent = () => {
           />
         </SwiperSlide>
         <SwiperSlide>
-          {" "}
           <Image
             src="/images/banner02.jpeg"
             alt="banner2"
@@ -44,7 +47,6 @@ const BoardListBannerComponent = () => {
           />
         </SwiperSlide>
         <SwiperSlide>
-          {" "}
           <Image
             src="/images/banner03.jpeg"
             alt="banner3"
