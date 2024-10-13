@@ -2,14 +2,15 @@
 
 import Image from "next/image";
 import "swiper/css";
+import styles from "./styles.module.css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
-const BoardListBannerComponent = () => {
+const LayoutBanner = () => {
   return (
-    <div style={{ width: "100vw" }}>
+    <div className={styles.banner}>
       <Swiper
         loop={true}
         speed={300}
@@ -27,38 +28,17 @@ const BoardListBannerComponent = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <Image
-            src="/images/banner01.jpeg"
-            alt="banner1"
-            width={0}
-            height={0}
-            sizes="100vw"
-            style={{ width: "100%", height: "512px", objectFit: "cover" }}
-          />
+          <Image src="/images/banner01.jpeg" alt="banner1" width={0} height={0} sizes="100vw" className={styles.css} />
         </SwiperSlide>
         <SwiperSlide>
-          <Image
-            src="/images/banner02.jpeg"
-            alt="banner2"
-            width={0}
-            height={0}
-            sizes="100vw"
-            style={{ width: "100%", height: "512px", objectFit: "cover" }}
-          />
+          <Image src="/images/banner02.jpeg" alt="banner2" width={0} height={0} sizes="100vw" className={styles.css} />
         </SwiperSlide>
         <SwiperSlide>
-          <Image
-            src="/images/banner03.jpeg"
-            alt="banner3"
-            width={0}
-            height={0}
-            sizes="100vw"
-            style={{ width: "100%", height: "512px", objectFit: "cover" }}
-          />
+          <Image src="/images/banner03.jpeg" alt="banner3" width={0} height={0} sizes="100vw" className={styles.css} />
         </SwiperSlide>
       </Swiper>
     </div>
   );
 };
 
-export default BoardListBannerComponent;
+export default LayoutBanner;

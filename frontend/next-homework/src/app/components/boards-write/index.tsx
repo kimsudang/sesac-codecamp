@@ -179,12 +179,14 @@ const BoardsWrite = (props: IBoardsWriteProps) => {
             placeholder="주소를 입력해 주세요."
             value={address}
             // defaultValue={props.data?.fetchBoard.boardAddress.address}
+            readOnly
           />
           <input
             className={styles.info}
             type="text"
             placeholder="상세주소"
             // defaultValue={props.data?.fetchBoard.boardAddress.addressDetail}
+            readOnly
           />
         </div>
         <hr className={styles.line} />
