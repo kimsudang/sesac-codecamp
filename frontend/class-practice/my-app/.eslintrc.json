@@ -1,0 +1,7 @@
+{
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  // any 타입 경고
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "warn"
+  }
+}
