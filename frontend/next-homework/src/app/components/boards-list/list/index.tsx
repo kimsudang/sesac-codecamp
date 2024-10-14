@@ -23,7 +23,7 @@ const BoardList = () => {
           <span className={styles.title}>삭제</span>
         </div>
         {data?.fetchBoards.map((el, index: number) => (
-          <ul key={el._id} className={`${styles.header} ${styles.contentList}`}>
+          <ul key={el._id} className={`${styles.topHeader} ${styles.contentList}`}>
             <Link href={`/boards/${el._id}`} className={styles.header}>
               {/* TODO */}
               {/* 좋아요, 싫어요 버튼 제작 후 클릭 시 색 채워지면서 좋아요/싫어요 1 증가 */}
@@ -38,7 +38,7 @@ const BoardList = () => {
                 like: {el.likeCount} dislike: {el.dislikeCount}
               </span> */}
             </Link>
-            <button id={el._id} onClick={onClickDelete}>
+            <button id={el._id} className={styles.delete} onClick={onClickDelete}>
               <Image src="/icons/delete.svg" alt="" width={0} height={0} className={styles.button} />
             </button>
           </ul>

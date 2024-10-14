@@ -21,6 +21,15 @@
 }
 
 /* 목록 헤더 */
+.topHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.2rem 2rem;
+  align-items: center;
+  gap: 0.8rem;
+}
+
 .header {
   width: 100%;
   display: flex;
@@ -71,6 +80,15 @@
 .button {
   width: 2.4rem;
   height: 2.4rem;
+}
+
+.delete {
+  display: none;
+}
+
+/* 버튼 호버 */
+.topHeader:hover .delete {
+  display: inline-block;
 }
 
 /* 데스크탑 */
