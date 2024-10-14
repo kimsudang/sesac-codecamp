@@ -20,7 +20,6 @@ const BoardList = () => {
           {/* 좋아요 싫어요 아이콘 */}
           {/* <span className={styles.title}>좋아요</span>
           <span className={styles.title}>싫어요</span> */}
-          <span className={styles.title}>삭제</span>
         </div>
         {data?.fetchBoards.map((el, index: number) => (
           <ul key={el._id} className={`${styles.topHeader} ${styles.contentList}`}>
