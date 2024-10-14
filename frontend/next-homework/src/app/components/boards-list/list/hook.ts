@@ -26,7 +26,7 @@ const useBoardList = () => {
     }
   };
 
-  return { data, onClickDelete };
+  return { onClickDelete };
 };
 
 export default useBoardList;
