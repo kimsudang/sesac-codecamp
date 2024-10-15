@@ -1,0 +1,38 @@
+const profile = {
+    name: "철수",
+    age: 12,
+    school: "다람쥐초등학교",
+    hobby: {
+        hobby1: "수영",
+        hobby2: "축구"
+    }
+}
+undefined
+
+const profile2 = {...profile};
+undefined
+
+profile2.hobby.hobby1 = "음악"
+'음악'
+
+profile2
+{
+  name: '철수', 
+  age: 12, 
+  school: '다람쥐초등학교', 
+  hobby: {
+    hobby1: '음악', 
+    hobby2: '축구'
+    }
+} [[Prototype]]: Object
+
+profile
+{
+  name: '철수', 
+  age: 12, 
+  school: '다람쥐초등학교', 
+  hobby: {
+    hobby1: '음악', 
+    hobby2: '축구'
+    }
+} [[Prototype]]: Object

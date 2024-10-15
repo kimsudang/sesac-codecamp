@@ -1,0 +1,44 @@
+let age = 12;
+undefined
+
+age = 13;
+13
+
+age
+13
+
+const school = "공룡초등학교"
+undefined
+
+school = "토끼 초등학교"
+VM1925:1 Uncaught TypeError: Assignment to constant variable.
+    at <anonymous>:1:8
+(anonymous) @ VM1925:1Understand this error
+
+const profile = {
+    name: "철수",
+    age: 12,
+}
+undefined
+
+rofile.name= "영희"
+'영희'
+
+profile
+{name: '영희', age: 12}
+
+profile = "공룡초등학교"
+VM2279:1 Uncaught TypeError: Assignment to constant variable.
+    at <anonymous>:1:9
+(anonymous) @ VM2279:1Understand this error
+
+Object.freeze(profile)
+{name: '영희', age: 12}
+
+profile.name = "훈이"
+'훈이'
+
+profil
+VM2413:1 Uncaught ReferenceError: profil is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM2413:1Understand this error
