@@ -1,0 +1,46 @@
+// 클래스 생성 및 선언
+class Monster {
+    power = 50 
+
+    attack() {
+        console.log("공격!!!!!!")
+    }
+}
+undefined
+
+
+// Monster 상속 받아서 SuperMonster 클래스 생성 및 선언
+class SuperMonster extends Monster {
+    
+
+    // 오버라이딩
+    attack() {
+        console.log("궁극기 발동!!!")
+    }
+
+    run() {
+        console.log("돔황챠!!")
+    }
+}
+undefined
+
+const monster = new Monster();
+undefined
+
+monster.power
+50
+
+monster.attack()
+공격!!!!!!
+
+const superM = new SuperMonster();
+undefined
+
+superM.power
+50
+
+superM.attack()
+궁극기 발동!!!
+
+superM.run()
+돔황챠!!

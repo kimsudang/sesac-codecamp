@@ -1,0 +1,58 @@
+"use client";
+
+import { useMutation, gql } from "@apollo/client";
+import { useState } from "react";
+
+const 나의그래프큐엘세팅 = gql`
+  #   mutation createBoard($myWriter: String, $myTitle: String, $myContents: String) {
+  #     createBoard(writer: $myWriter, title: $myTitle, contents: $myContents) {
+  #       _id
+  #       number
+  #       message
+  #     }
+  #   }
+  #
+`;
+
+export default function GraphqlMutationPage() {
+  const [writer, setWriter] = useState("");
+  const [title, setTitle] = useState("");
+  const [contents, setContents] = useState("");
+
+  // 그래프큐엘
+  const [나의함수] = useMutation(나의그래프큐엘세팅);
+
+  // useState 힘수
+  const onChangeWriter = (event) => {
+    setWriter(event.target.value);
+  };
+
+  const onChangeTitle = (event) => {
+    setTitle(event.target.value);
+  };
+
+  const onChangeContents = (event) => {
+    setContents(event.target.value);
+  };
+
+  const onClickSubmit = async () => {
+    //여기서 그래프큐엘 요청하기
+    const result = await 나의함수({
+      variables: {
+        myWriter: writer,
+        myTitle: title,
+        myContents: contents,
+      },
+    });
+    console.log(result);
+  };
+
+  return (
+    <>
+      <input type="text" onChange={onChangeWriter} /> <br />
+      <input type="text" onChange={onChangeTitle} /> <br />
+      <input type="text" onChange={onChangeContents} /> <br />
+      <button onClick={onClickSubmit}>GraphQL 동기 요청하기</button>
+    </>
+  );
+}

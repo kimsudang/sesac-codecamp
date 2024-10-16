@@ -1,0 +1,20 @@
+class Date { 
+  qqq = 3
+
+  getFullYear() {
+
+  }
+
+  getMonth() {
+
+  }
+
+}
+
+// date는? 인스턴스: class를 사용해 찍어낸 객체
+const date = new Date()
+date.qqq
+date.getFullYear()
+date.getMonth() // 메서드
+
+const date2 = new Date() // 여러번 찍어내기 가능

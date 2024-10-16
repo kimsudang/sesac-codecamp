@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>this의 이해</title>
+    <script>
+      class CounterClass {
+        count = 10;
+
+        countUP() {
+          console.log("==============================");
+          console.log("countUP() this? :", this); // this:카운터클래스
+          console.log("==============================");
+
+          this.count += 1;
+          console.log(this.count); // this: 카운터클래스
+        }
+
+        drawButton() {
+          console.log("==============================");
+          console.log("drawButton() this? :", this); // this: 카운터클래스
+          console.log("==============================");
+
+          // 버튼을 아래와 같이 생성해서 속성달아줄 수 있음.
+          // 리액트에서도 (JSX) 이런 식으로 html 생성해서 넣어주는 것임.
+          const button = document.createElement("button");
+          button.count = 50;
+          button.innerText = "count +";
+          // TODO: 여기서 countUP()이렇게 하면 로드 되는 순간 결과가 나오고 클릭 시 반응이 없는 이유?
+          button.addEventListener("click", this.countUP.bind(this)); // 해결방법 2. this가 변경될 부분에 미리 현재 로직 상의 this를 연결, bind() 함수 사용
+          // TODO:  이건 왜 적었지?
+          document.body.appendChild(button);
+        }
+      }
+
+      window.onload = () => {
+        const counter = new CounterClass();
+        counter.drawButton();
+      };
+    </script>
+  </head>
+  <body></body>
+</html>
