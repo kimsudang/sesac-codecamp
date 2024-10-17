@@ -14,9 +14,10 @@ import {
   MenuOutlined,
 } from "@ant-design/icons";
 import YouTube from "react-youtube";
+import { Tooltip } from "antd";
 
 const BoardsDetailComponent = () => {
-  const { params, data } = useBoardsDetail();
+  const { params, data, address } = useBoardsDetail();
 
   return (
     <div className={styles.container}>
@@ -44,9 +45,11 @@ const BoardsDetailComponent = () => {
         <button className={styles.backNone}>
           <LinkOutlined />
         </button>
-        <button className={styles.backNone}>
-          <EnvironmentOutlined />
-        </button>
+        <Tooltip placement="bottom" title={address}>
+          <button className={styles.backNone}>
+            <EnvironmentOutlined />
+          </button>
+        </Tooltip>
       </div>
 
       {/* 내용 */}
@@ -55,6 +58,7 @@ const BoardsDetailComponent = () => {
           data?.fetchBoard.images.map((el, index) => <div key={index + 1}>이미지 삽입</div>)} */}
         <div>{data?.fetchBoard.contents}</div>
         {data?.fetchBoard.youtubeUrl && (
+          // videoId={영상의 키값}
           <YouTube videoId={data?.fetchBoard.youtubeUrl.split("=")[1]} />
         )}
       </div>
@@ -63,15 +67,15 @@ const BoardsDetailComponent = () => {
       <div className={styles.button}>
         <div>
           <div>
-            <div>
-              <button className="backNone">
-                <LikeOutlined />
-                {/* TODO: 좋아요 눌렀을 때 */}
-                {/* <LikeFilled /> */}
-              </button>
-              <p>{data?.fetchBoard.likeCount}</p>
-            </div>
-            <button className="backNone">
+            <button className={styles.backNone}>
+              <LikeOutlined />
+              {/* TODO: 좋아요 눌렀을 때 */}
+              {/* <LikeFilled /> */}
+            </button>
+            <p>{data?.fetchBoard.likeCount}</p>
+          </div>
+          <div>
+            <button className={styles.backNone}>
               <DislikeOutlined />
               {/* TODO:싫어요 눌렀을 때 */}
               {/* <DislikeFilled /> */}
