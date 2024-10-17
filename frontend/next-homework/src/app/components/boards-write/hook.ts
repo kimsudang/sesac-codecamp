@@ -44,6 +44,7 @@ const useBoardWrite = () => {
   // 주소 관련 변수
   const [zipcode, setZipcode] = useState("");
   const [address, setAddress] = useState("");
+  const [addressDetail, setAddressDetail] = useState("");
 
   // 모듈
   // TODO: 게시글 등록 여부 알리는 토스트 띄워주기
@@ -123,6 +124,10 @@ const useBoardWrite = () => {
     setYoutubeUrl(event.target.value);
   };
 
+  const onChangeAddressDetail = (event: ChangeEvent<HTMLInputElement>) => {
+    setAddressDetail(event.target.value);
+  };
+
   const onClickSubmitPostVaildation = async () => {
     try {
       if (isVaild && writer && password && title && content) {
@@ -133,7 +138,12 @@ const useBoardWrite = () => {
               password: password,
               title: title,
               contents: content,
-              youtubeUrl: youtubeUrl, // 입력 객체로 youtubeUrl 포함
+              youtubeUrl: youtubeUrl,
+              boardAddress: {
+                zipcode: zipcode,
+                address: address,
+                addressDetail: addressDetail,
+              },
             },
           },
         });
@@ -217,6 +227,7 @@ const useBoardWrite = () => {
     onChangeContent,
     onChangeTitle,
     onChangeYoutubeUrl,
+    onChangeAddressDetail,
     onClickSubmitPostVaildation,
     onClickEditPostVaildation,
     onClickCancle,

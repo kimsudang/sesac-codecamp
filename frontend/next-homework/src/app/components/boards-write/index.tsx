@@ -28,6 +28,7 @@ const BoardsWrite = (props: IBoardsWriteProps) => {
     onChangeContent,
     onChangeTitle,
     onChangeYoutubeUrl,
+    onChangeAddressDetail,
     onClickSubmitPostVaildation,
     onClickEditPostVaildation,
     onClickCancle,
@@ -187,6 +188,7 @@ const BoardsWrite = (props: IBoardsWriteProps) => {
             className={styles.info}
             type="text"
             placeholder="상세주소"
+            onChange={onChangeAddressDetail}
             // defaultValue={props.data?.fetchBoard.boardAddress.addressDetail}
           />
         </div>

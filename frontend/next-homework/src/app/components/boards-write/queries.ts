@@ -14,9 +14,11 @@ export const CREATE_BOARD = gql`
       likeCount
       dislikeCount
       # images
-      # boardAddress {
-
-      # }
+      boardAddress {
+        zipcode
+        address
+        addressDetail
+      }
       # user
       createdAt
     }
