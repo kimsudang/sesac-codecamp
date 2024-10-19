@@ -1,18 +1,20 @@
 "use client";
 
 import { useQuery } from "@apollo/client";
-import { FETCH_COMMITS } from "./queries";
 import { useParams } from "next/navigation";
+import { FetchBoardCommentsDocument } from "@/commons/graphql/graphql";
 
 const useCommentList = () => {
   const params = useParams();
-  const { data } = useQuery(FETCH_COMMITS, {
+  const { data, fetchMore } = useQuery(FetchBoardCommentsDocument, {
     variables: {
       boardId: String(params.boardId),
     },
   });
 
-  return { data };
+  console.log(data);
+
+  return { data, fetchMore };
 };
 
 export default useCommentList;

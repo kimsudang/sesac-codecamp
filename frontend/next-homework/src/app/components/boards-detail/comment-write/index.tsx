@@ -1,13 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import styles from "./styles.module.css";
-import chat from "../../../../../public/icons/chat.svg";
-import stars from "../../../../../public/icons/star.svg";
 import useCommentWrite from "./hook";
+import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
+import { Rate } from "antd";
 
 const CommentWriteComponent = () => {
   const {
+    rank,
     writer,
     password,
     contents,
@@ -18,23 +18,24 @@ const CommentWriteComponent = () => {
     onChangewriter,
     onChangePassword,
     onChangeComment,
+    onChangeRank,
     onClickSubmitComment,
   } = useCommentWrite();
-
   return (
     <div>
+      <ChatOutlinedIcon />
+      <p>댓글</p>
       <div>
-        <Image src={chat} alt="댓글" width={0} height={0} />
-        <p>댓글</p>
-      </div>
-      <div>
-        {/* map 사용 */}
-        <Image src={stars} alt="랭킨" width={0} height={0} />
+        <Rate onChange={onChangeRank} value={rank} allowHalf />
       </div>
       <div>
         <div>
           <p>작성자</p>
-          <input id="commentWriter" placeholder="작성자 명을 입력해 주세요" onChange={onChangewriter} />
+          <input
+            id="commentWriter"
+            placeholder="작성자 명을 입력해 주세요"
+            onChange={onChangewriter}
+          />
           <p
             id="postPasswordVaild"
             style={{
@@ -50,7 +51,11 @@ const CommentWriteComponent = () => {
         </div>
         <div>
           <p>비밀번호</p>
-          <input id="commentPassword" placeholder="비밀번호를 입력해 주세요" onChange={onChangePassword} />
+          <input
+            id="commentPassword"
+            placeholder="비밀번호를 입력해 주세요"
+            onChange={onChangePassword}
+          />
           <p
             id="postPasswordVaild"
             style={{
@@ -67,7 +72,7 @@ const CommentWriteComponent = () => {
       </div>
       <div>
         <textarea id="commentContent" onChange={onChangeComment}></textarea>
-        <p>0/100</p>
+        <p>0/250</p>
         <p
           id="postPasswordVaild"
           style={{
@@ -85,7 +90,11 @@ const CommentWriteComponent = () => {
         id="postSubmitButton"
         className={`${styles.check} ${styles.submit}`}
         onClick={onClickSubmitComment}
-        style={{ backgroundColor: buttonActiveStyle ? "var(--n-main, #2974e5)" : "var(--gray-300, #c7c7c7)" }}
+        style={{
+          backgroundColor: buttonActiveStyle
+            ? "var(--n-main, #2974e5)"
+            : "var(--gray-300, #c7c7c7)",
+        }}
       >
         등록하기
       </button>{" "}
