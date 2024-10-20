@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import styles from "./styles.module.css";
-import close from "../../../../public/icons/close.svg";
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import useBoardWrite from "./hook";
 import { IBoardsWriteProps } from "./types";
 import { Modal } from "antd";
@@ -39,8 +39,8 @@ const BoardsWrite = (props: IBoardsWriteProps) => {
   return (
     <div className={styles.page}>
       <div className={styles.menu}>
-        <p>게시글 등록하기</p>
-        <Image src={close} alt="" width={0} height={0} />
+        {props.isEdit ? <p>게시글 수정하기</p> : <p>게시글 등록하기</p>}
+        <CloseOutlinedIcon />
       </div>
       <div className={styles.container}>
         {/* 작성자, 비번 */}

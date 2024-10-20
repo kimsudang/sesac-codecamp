@@ -1,11 +1,11 @@
 "use client";
 
 import { useQuery } from "@apollo/client";
-import BoardList from "../components/boards-list/list";
+import BoardList from "../_components/boards-list/list";
 import styles from "./styles.module.css";
-import { FETCH_BOARDS } from "../components/boards-list/list/queries";
-import { FETCH_BOARDS_COUNT } from "../components/boards-list/pagination/queries";
-import Pagination from "../components/boards-list/pagination";
+import { FETCH_BOARDS } from "../_components/boards-list/list/queries";
+import { FETCH_BOARDS_COUNT } from "../_components/boards-list/pagination/queries";
+import Pagination from "../_components/boards-list/pagination";
 
 const BoardsList = () => {
   const { data, refetch } = useQuery(FETCH_BOARDS);
@@ -13,11 +13,10 @@ const BoardsList = () => {
   console.log(data);
 
   const lastPage = Math.ceil((dataBoardsCount?.fetchBoardsCount ?? 10) / 10);
-  const counter = Number(dataBoardsCount?.fetchBoardsCount);
 
   return (
     <div className={styles.container}>
-      <BoardList data={data} counter={counter} />
+      <BoardList data={data} />
       <Pagination refetch={refetch} lastPage={lastPage} />
     </div>
   );
