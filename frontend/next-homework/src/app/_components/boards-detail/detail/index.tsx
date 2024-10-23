@@ -14,7 +14,7 @@ import YouTube from "react-youtube";
 import { Tooltip } from "antd";
 
 const BoardsDetailComponent = () => {
-  const { params, data, address } = useBoardsDetail();
+  const { params, data, address, videoID } = useBoardsDetail();
 
   return (
     <div className={styles.container}>
@@ -49,7 +49,7 @@ const BoardsDetailComponent = () => {
         <div>{data?.fetchBoard.contents}</div>
         {data?.fetchBoard.youtubeUrl && (
           // videoId={영상의 키값}
-          <YouTube videoId={data?.fetchBoard.youtubeUrl.split("=")[1]} />
+          <YouTube videoId={videoID} />
         )}
       </div>
 
