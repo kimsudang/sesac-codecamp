@@ -29,11 +29,13 @@ const useBoardWrite = () => {
   });
 
   // 이벤트 받아올 변수
-  const [writer, setWriter] = useState("");
+  const [writer, setWriter] = useState(data?.fetchBoard.writer || "");
   const [password, setPassword] = useState("");
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [youtubeUrl, setYoutubeUrl] = useState("");
+  const [title, setTitle] = useState(data?.fetchBoard.title || "");
+  const [content, setContent] = useState(data?.fetchBoard.contents || "");
+  const [youtubeUrl, setYoutubeUrl] = useState(
+    data?.fetchBoard.youtubeUrl || ""
+  );
 
   // 경고 메시지 변수
   const [writerVaild, setWriterVaild] = useState("");
@@ -42,9 +44,15 @@ const useBoardWrite = () => {
   const [contentVaild, setContentVaild] = useState("");
 
   // 주소 관련 변수
-  const [zipcode, setZipcode] = useState("");
-  const [address, setAddress] = useState("");
-  const [addressDetail, setAddressDetail] = useState("");
+  const [zipcode, setZipcode] = useState(
+    data?.fetchBoard.boardAddress?.zipcode || ""
+  );
+  const [address, setAddress] = useState(
+    data?.fetchBoard.boardAddress?.address || ""
+  );
+  const [addressDetail, setAddressDetail] = useState(
+    data?.fetchBoard.boardAddress?.addressDetail || ""
+  );
 
   // 모듈
   // TODO: 게시글 등록 여부 알리는 토스트 띄워주기
@@ -164,43 +172,55 @@ const useBoardWrite = () => {
       "게시글 생성 시 입력했던 비밀번호를 입력해주세요.",
       ""
     );
+
+    if (!promptPassword) {
+      console.error("비밀번호를 입력해주세요!!");
+      return;
+    }
+
     const myVariables = {
-      boardId: params.boardId,
+      boardId: String(params.boardId)!,
+      password: promptPassword,
+      updateBoardInput: {
+        title: title,
+        contents: content,
+        youtubeUrl: youtubeUrl,
+        boardAddress: {
+          zipcode: zipcode,
+          address: address,
+          addressDetail: addressDetail,
+        },
+      },
     };
+
+    console.log(`test: ${myVariables}`);
+
+    console.log(myVariables);
+    if (title) myVariables.updateBoardInput.title = title;
+    if (content) myVariables.updateBoardInput.contents = content;
+    if (youtubeUrl) myVariables.updateBoardInput.youtubeUrl = youtubeUrl;
+    if (zipcode) myVariables.updateBoardInput.boardAddress.zipcode = zipcode;
+    if (address) myVariables.updateBoardInput.boardAddress.address = address;
+    if (addressDetail)
+      myVariables.updateBoardInput.boardAddress.addressDetail = addressDetail;
 
     console.log(`myVariables: ${JSON.stringify(myVariables)}`);
 
-    // if (title) myVariables.myTitle = title;
-    // if (content) myVariables.myContents = content;
-
     try {
       const result = await updateBoard({
-        variables: {
-          boardId: String(params.boardId),
-          password: promptPassword,
-          updateBoardInput: {
-            title: title,
-            contents: content,
-            youtubeUrl: youtubeUrl,
-            // boardArress: {
-            //   zipcode: ,
-            //   address: ,
-            //   addressDetail: ,
-            // },
-            // TODO: 이미지 수정
-            // image: [""]
+        variables: myVariables,
+        refetchQueries: [
+          {
+            query: FetchBoardDocument,
+            variables: { boardId: String(params.boardId)! },
           },
-        },
+        ],
       });
       console.log(result);
-
-      alert("수정이 완료되었습니다.");
-      // TODO: refetch 시키기
       router.push(`/boards/${params.boardId}`);
     } catch (error) {
       console.log(error);
-      // alert(`${error?.message}`);
-      router.push(`/boards`);
+      alert(`${error}`);
     }
   };
 
