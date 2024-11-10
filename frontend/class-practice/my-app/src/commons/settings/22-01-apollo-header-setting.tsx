@@ -15,6 +15,7 @@ interface IApolloSetting {
   children: React.ReactNode;
 }
 export default function ApolloHeaderSetting(props: IApolloSetting) {
+  // login에서 받아온 asseccToken을 받아옴
   const { accessToken } = useAccessTokenStore();
 
   const uploadLink = createUploadLink({
@@ -24,7 +25,6 @@ export default function ApolloHeaderSetting(props: IApolloSetting) {
 
   const client = new ApolloClient({
     link: ApolloLink.from([uploadLink]),
-
     // cache: new InMemoryCache(), // => accessToken이 변경돼서 리렌더될 때 새로만들어짐
     cache: GLOBAL_STATE, // => 컴포넌트는 새로 만들어져도, globalState는 유지됨
   });

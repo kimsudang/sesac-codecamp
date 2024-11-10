@@ -1,8 +1,9 @@
-import ApolloSetting from "@/commons/settings/14-01-apollo-setting";
+// import ApolloSetting from "@/commons/settings/14-01-apollo-setting";
 import "./globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Layout from "@/commons/layout";
+import ApolloHeaderSetting from "@/commons/settings/22-01-apollo-header-setting";
 
 const 철수의폰트 = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,9 +32,10 @@ export default function RootLayout({ children }: IProps) {
         {/* 헤더 */}
         <div>==========여기 위는 레이아웃입니다.============</div>
         {/* 내용 */}
-        <ApolloSetting>
+        {/* setting 폴더에서 내가 만들어놓은 setting 파일에 따라 달라짐 */}
+        <ApolloHeaderSetting>
           <Layout>{children}</Layout>
-        </ApolloSetting>
+        </ApolloHeaderSetting>
         {/* 푸터 */}
         <div>==========여기 아래는 레이아웃입니다.============</div>
       </body>
