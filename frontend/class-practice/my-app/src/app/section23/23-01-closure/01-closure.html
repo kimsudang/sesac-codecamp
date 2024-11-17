@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>클로저 실습!</title>
+    <script>
+      function aaa() {
+        const apple = 10;
+
+        function bbb() {
+          const banana = 20;
+          console.log(banana);
+          // 안에 사과 없으니까 밖의 중괄호까지(밖의 스코프까지) 가서 찾음 => 스코프 체인
+          console.log(apple); // 10
+          // 위엔는 없지만 밖에 존재 => 스코프 체인
+          console.log(qqq); // 3
+        }
+
+        const qqq = 3;
+
+        bbb();
+      }
+
+      aaa();
+    </script>
+  </head>
+  <body></body>
+</html>

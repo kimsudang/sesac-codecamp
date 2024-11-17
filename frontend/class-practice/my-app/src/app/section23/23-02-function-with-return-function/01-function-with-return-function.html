@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>HOF 실습!</title>
+    <script>
+      function aaa() {
+        const apple = 10;
+
+        return function bbb() {
+          const banana = 20;
+          console.log(banana);
+          console.log(apple);
+        };
+      }
+
+      /// aaa()가 먼저 실행 => bbb()가 이 자리에 위치, ()로 인해 bbb()도 실행됨.
+      aaa()();
+    </script>
+  </head>
+  <body></body>
+</html>

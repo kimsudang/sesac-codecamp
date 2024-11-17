@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>HOF 실습!</title>
+    <script>
+      const aaa = (tomato) => (orange) => (apple) => (banana) => {
+        console.log(tomato); // 100
+        console.log(orange); // 200
+        console.log(apple); // 10
+        console.log(banana); // 20
+      };
+
+      aaa(100)(200)(10)(20);
+    </script>
+  </head>
+  <body></body>
+</html>
